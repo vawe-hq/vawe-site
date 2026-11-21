@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <title>Lanes in motion: bars at three speeds and one playhead</title>
+  <defs>
+    <linearGradient id="trail" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#fff" stop-opacity="0.16"/>
+      <stop offset="0.7" stop-color="#fff" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#0a0a0a"/>
+  <rect x="120" y="250" width="760" height="110" fill="url(#trail)"/>
+  <rect x="880" y="250" width="260" height="110" fill="#fff"/>
+  <rect x="420" y="400" width="560" height="110" fill="url(#trail)"/>
+  <rect x="980" y="400" width="140" height="110" fill="#fff"/>
+  <rect x="40" y="550" width="1000" height="110" fill="url(#trail)"/>
+  <rect x="1040" y="550" width="380" height="110" fill="#fff"/>
+  <rect x="1176" y="160" width="10" height="580" fill="#1a3cff"/>
+  <g font-family="Instrument Sans" font-size="26" fill="#ffffff">
+    <text x="56" y="836">vawe</text>
+    <text x="1544" y="836" text-anchor="end" style="font-variant-numeric:tabular-nums">F 0142</text>
+  </g>
+</svg>

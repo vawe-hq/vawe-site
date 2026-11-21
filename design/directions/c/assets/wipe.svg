@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <title>Wipe: one shot hands over to the next on a diagonal</title>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <path d="M760 0H1600V900H360Z" fill="#0a0a0a"/>
+  <circle cx="520" cy="450" r="190" fill="#1a3cff"/>
+  <clipPath id="dark"><path d="M760 0H1600V900H360Z"/></clipPath>
+  <circle cx="520" cy="450" r="190" fill="#ffffff" clip-path="url(#dark)"/>
+  <g font-family="Anybody" font-weight="800" font-size="170" style="font-stretch:62%">
+    <text x="1500" y="520" text-anchor="end" fill="#ffffff">Cut.</text>
+  </g>
+  <g font-family="Instrument Sans" font-size="26">
+    <text x="56" y="836" fill="#0a0a0a">vawe</text>
+    <text x="1544" y="836" text-anchor="end" fill="#ffffff" style="font-variant-numeric:tabular-nums">F 0096</text>
+  </g>
+</svg>

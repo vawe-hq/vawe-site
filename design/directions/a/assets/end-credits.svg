@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>vawe end credits: the poster frame for share cards and film loads</title>
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="1"/>
+      <stop offset="0.06" stop-color="#000" stop-opacity="0.84"/>
+      <stop offset="0.12" stop-color="#000" stop-opacity="0.5"/>
+      <stop offset="0.2" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.8" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.88" stop-color="#000" stop-opacity="0.5"/>
+      <stop offset="0.94" stop-color="#000" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#000" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#000"/>
+  <g transform="translate(572 58) scale(0.875)" fill="#fff">
+    <path d="M8 19h25v8h-25zM41 19h15v8h-15zM20 32h13v8h-13zM41 32h15v8h-15zM8 45h25v8h-25zM41 45h15v8h-15zM32 3H42V10L38 14V59H36V14L32 10z"/>
+  </g>
+  <text x="600" y="170" text-anchor="middle" fill="#fff" font-family="Instrument Serif, serif" font-size="58">A vawe film</text>
+  <line x1="600" y1="206" x2="600" y2="600" stroke="#262626" stroke-width="1"/>
+  <g font-family="Hanken Grotesk, sans-serif" font-size="17">
+    <g fill="#9b9b9b" text-anchor="end">
+      <text x="584" y="240">Written in</text>
+      <text x="584" y="284">Directed by</text>
+      <text x="584" y="328">Moved by</text>
+      <text x="584" y="372">Timed by</text>
+      <text x="584" y="416">Sound</text>
+      <text x="584" y="460">Rendered by</text>
+      <text x="584" y="504">Frames</text>
+      <text x="584" y="548">Licence</text>
+      <text x="584" y="592">Source</text>
+    </g>
+    <g fill="#ffffff" font-family="Instrument Serif, serif" font-size="25">
+      <text x="616" y="242">one HTML page</text>
+      <text x="616" y="286">you, or your coding agent</text>
+      <text x="616" y="330">CSS and Web Animations</text>
+      <text x="616" y="374">the seek, never the clock</text>
+      <text x="616" y="418">audio tags in the page</text>
+      <text x="616" y="462">vawe</text>
+      <text x="616" y="506" style="font-variant-numeric: tabular-nums">240 of 240</text>
+      <text x="616" y="550">Apache-2.0</text>
+      <text x="616" y="594">github.com/vawe-hq/vawe</text>
+    </g>
+  </g>
+  <rect y="214" width="1200" height="416" fill="url(#fade)"/>
+</svg>
