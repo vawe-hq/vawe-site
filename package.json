@@ -1,0 +1,16 @@
+{
+  "name": "vawe-site-repo",
+  "private": true,
+  "type": "module",
+  "description": "vawe.dev: the marketing site (site/), its build scripts (scripts/site/), and the SEO gates (quality/gates/). The Next app has its own package.json in site/.",
+  "scripts": {
+    "vendor:sync": "node scripts/vendor-sync.mjs ../vawe",
+    "vendor:check": "node scripts/vendor-sync.mjs ../vawe --check",
+    "test": "node --test 'tests/lib/*.test.mjs' 'tests/dev/*.test.mjs'",
+    "gate:typography": "node quality/gates/site-typography.mjs",
+    "gate:seo-surface": "node quality/gates/seo-surface.mjs",
+    "gate:seo-pseo": "node quality/gates/seo-pseo.mjs",
+    "gate:build": "node quality/gates/site-build-check.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

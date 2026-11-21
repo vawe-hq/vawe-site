@@ -412,7 +412,7 @@ title always sits beside it. Without the file a card has no image.
 `assets/brand-art/cards.js`: the post's `topic` front matter names one to three fitting scenes, and a seed from the slug picks one and varies it (2026-11-03: at most 5 of 49 posts share a scene and ink, down from 12).
 The main pages serve `public/og/<route>.png` the same way, and each has a 5 s 960x504 loop, `public/og/<route>.mp4`,
 linked as og:video by `pageMetadata`. `node scripts/site/og-cards.mjs [--loops]` renders them all; a new post
-or page needs a run before its route can build; `bin/vawe-dev check seo-surface` fails on a missing card and warns on a stale one
+or page needs a run before its route can build; `node quality/gates/seo-surface.mjs` fails on a missing card and warns on a stale one
 (`public/og/stamp.json` holds a hash of each card's inputs).
 
 **Post.** A head (title, dek, mono meta with the issue number), the cover, a 720 px body and, from

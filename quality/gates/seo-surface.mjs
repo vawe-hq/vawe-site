@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // quality/gates/seo-surface.mjs: does the marketing site's SEO surface still hold?
 //
-//   node quality/gates/seo-surface.mjs [--json]   ·   vawe-dev check seo-surface
+//   node quality/gates/seo-surface.mjs [--json]
 //
 // WHY THIS EXISTS. sitemap.ts, robots.ts, seo.ts, ogCard.tsx and schema.ts (all landed 2026-09-19,
 // see their own file headers) are each a fact nothing used to check: a new route with no canonical, a
@@ -38,7 +38,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { DOCS_ORIGIN } from '../../site/lib/docs-origin.mjs';
 import { docsDir } from '../../scripts/site/docs-dir.mjs';
-import { gateFindings } from '../../harness/lib/findings.mjs';
+import { gateFindings } from '../../vendor/vawe/harness/lib/findings.mjs';
 import { docsLinks, parseFrontMatter } from '../../site/lib/blog-front-matter.mjs';
 import { ogInputs, readStamp } from '../../scripts/site/og-inputs.mjs';
 
@@ -217,13 +217,13 @@ for (const p of pageFiles) {
   // this run.
   const runnerFile = path.join(SITE_LIB, '_seo-surface-schema-runner.mjs');
   try {
-    // Node's native TS type-stripping cannot resolve a plain `import pkg from "../../package.json"`
+    // Node's native TS type-stripping cannot resolve a plain `import pkg from "../../vendor/vawe/package.json"`
     // (it needs an explicit import attribute); this is the one line schema.ts needs rewritten to run
     // outside a bundler. Written into site/lib/ (not os.tmpdir()) so the relative import still
     // resolves, and deleted in the finally block below whatever happens.
     const patched = read(schemaFile).replace(
-      'import pkg from "../../package.json";',
-      'import pkg from "../../package.json" with { type: "json" };',
+      'import pkg from "../../vendor/vawe/package.json";',
+      'import pkg from "../../vendor/vawe/package.json" with { type: "json" };',
     ).replace(/from "(\.\/[\w-]+)";/g, (m, spec) => (fs.existsSync(path.join(SITE_LIB, `${spec}.ts`)) ? `from "${spec}.ts";` : m));
     if (patched === read(schemaFile)) {
       f.fail('seo-schema-probe-broken', 'schema.ts no longer imports package.json the way this gate expects to patch', {

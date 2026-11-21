@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // quality/gates/seo-pseo.mjs: do the site's template pages and hubs hold up as search and AI-crawler pages?
 //
-//   node quality/gates/seo-pseo.mjs [--base http://localhost:3187] [--all] [--json]   ·   vawe-dev check seo-pseo
+//   node quality/gates/seo-pseo.mjs [--base http://localhost:3187] [--all] [--json]
 //
 // Run it against a production build (`npm --prefix site run build && npm --prefix site run start`), because
 // the third read is the HTML the server sends. It advises and never fails: every finding is a warning.
@@ -21,8 +21,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { docsDir } from '../../scripts/site/docs-dir.mjs';
-import { gateFindings } from '../../harness/lib/findings.mjs';
-import { MAX_HTML_BYTES, copyShare, hubProse, inbound, internalLinks, mainOf, markdownLinks, mdBody, repeats, textOf } from '../../harness/lib/pseo.mjs';
+import { gateFindings } from '../../vendor/vawe/harness/lib/findings.mjs';
+import { MAX_HTML_BYTES, copyShare, hubProse, inbound, internalLinks, mainOf, markdownLinks, mdBody, repeats, textOf } from '../lib/pseo.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SITE_LIB = path.join(ROOT, 'site/lib');

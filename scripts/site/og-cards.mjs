@@ -10,15 +10,17 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { vaweDir } from './vawe-dir.mjs';
 import { STAMP, ogInputs, readStamp } from './og-inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SITE = path.join(ROOT, 'site');
 const OUT = path.join(SITE, 'public/og');
+const VAWE = vaweDir(ROOT);
 const sharp = createRequire(path.join(SITE, 'package.json'))('sharp');
 
 function vawe(args) {
-  const r = spawnSync(path.join(ROOT, 'bin/vawe'), args, { cwd: ROOT, encoding: 'utf8' });
+  const r = spawnSync(path.join(VAWE, 'bin/vawe'), args, { cwd: VAWE, encoding: 'utf8' });
   if (r.status !== 0) throw new Error(`bin/vawe ${args.join(' ')} failed:\n${r.stderr || r.stdout}`);
 }
 

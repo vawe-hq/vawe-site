@@ -1,0 +1,11 @@
+node_modules
+.next
+.next-build
+.source
+.DS_Store
+# fetched and hash-locked by vendor/vawe/generators/media/fonts.mjs; copied into site/public/assets by scripts/site/vendor-assets.mjs
+vendor/vawe/assets/fonts/
+site/public/assets/fonts/
+site/public/assets/films/
+site/tsconfig.tsbuildinfo
+site/next-env.d.ts

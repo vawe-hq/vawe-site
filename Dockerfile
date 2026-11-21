@@ -1,5 +1,6 @@
-# The marketing site. Build context is the REPO ROOT, not site/. The faces, which cannot be
-# committed, are copied into site/public at build time by scripts/site/vendor-assets.mjs.
+# The marketing site (vawe.dev). Build context is the REPO ROOT, not site/. The faces, which cannot be
+# committed, are fetched into vendor/vawe/assets/fonts and copied into site/public at build time by
+# scripts/site/vendor-assets.mjs.
 #
 #   docker build -t vawe-site .
 #   docker run -p 3000:3000 vawe-site
@@ -11,39 +12,22 @@ FROM node:22-alpine AS builder
 WORKDIR /src
 
 COPY scripts ./scripts
-# generators/ bakes the standing assets (fonts here); the RUN below needs it in the image
-COPY generators ./generators
-# scripts/site/moves.mjs and easing.mjs import the motion library at build time
-COPY core ./core
+# vendor/vawe holds the vawe engine files the site reads (see vendor/vawe/PIN): the motion library that
+# scripts/site/springs.mjs and easing.mjs import, the clip hash, and the font script with its lock.
+COPY vendor ./vendor
 # The rule this encodes: only COPY a path git actually carries. A COPY of a gitignored directory is a
 # hard failure at build time, not a missing file.
 
 # Font binaries are deliberately NOT committed (redistribution), so a clean checkout has none, and
-# the social cards (site/app/components/ogCard.tsx) render with them.
-# fonts.mjs uses only node builtins, hence no install needed here.
-#
-# It reads exactly two repo paths: assets/fonts (which it writes) and this lock, which it refuses to
-# run without ("Every face would read as unlocked"). The lock moved to harness/media/ in the layout
-# pass and no COPY followed it, so the build died here. docker-check reads COPY lines and cannot see
-# what a RUN step opens, which is why this one arrived as a failed deploy rather than a failed gate.
-COPY harness/media/fonts.lock.json ./harness/media/fonts.lock.json
-RUN node generators/media/fonts.mjs
-# scripts/site/moves.mjs (the site prebuild) imports the clip hash owner; a missing import kills the
-# prebuild before its "prompts/moves is not here" early exit runs.
-COPY harness/lib/clip-hash.mjs ./harness/lib/clip-hash.mjs
+# the social cards (site/app/components/ogCard.tsx) render with them. fonts.mjs uses only node builtins,
+# hence no install needed here. It reads vendor/vawe/harness/media/fonts.lock.json and refuses to run
+# without it ("Every face would read as unlocked"); it writes vendor/vawe/assets/fonts, which
+# scripts/site/vendor-assets.mjs copies into site/public at prebuild.
+RUN node vendor/vawe/generators/media/fonts.mjs
 
 # --- the site ---
-# The REPO ROOT package.json, because site/lib/schema.ts imports `../../package.json` to read the
-# engine's real description, version, licence and repo URL into the SoftwareApplication JSON-LD
-# rather than retyping them. From /src/site/lib that resolves to /src/package.json, which was not in
-# the image, so the site built clean on every laptop and died here with "Module not found: Can't
-# resolve '../../package.json'". The same class as the assets/plinth line below: a path that exists
-# in a checkout is not a path that exists in a build context.
-#
-# Copied at /src, ABOVE the site's own npm ci, so it is a layer that only busts when the engine's
-# version or description actually changes. docker-check reads COPY lines and cannot see what a JS
-# import resolves to, which is why this arrived as a failed deploy rather than a failed gate.
-COPY package.json ./package.json
+# site/lib/schema.ts imports ../../vendor/vawe/package.json for the engine's real description, version,
+# licence and repo URL (the SoftwareApplication JSON-LD). It is inside vendor/, copied above.
 COPY site/package.json site/package-lock.json ./site/
 WORKDIR /src/site
 RUN npm ci

@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { clipFacts } from '../../scripts/site/clip-facts.mjs';
-import { clipHash } from '../../harness/lib/clip-hash.mjs';
+import { clipHash } from '../../vendor/vawe/harness/lib/clip-hash.mjs';
 
 const master = () => {
   const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'clip-facts-')), 'x.mp4');

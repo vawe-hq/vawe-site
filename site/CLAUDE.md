@@ -39,11 +39,11 @@ tag `arsenal-final` and match that register.
 ## Routes and the sitemap
 
 `site/lib/site-pages.json` lists every route; the footer nav and `app/sitemap.ts` both read it, and
-`bin/vawe-dev check seo-surface` fails when it and `app/` disagree. Edit it by hand when you add a page.
+`node quality/gates/seo-surface.mjs` fails when it and `app/` disagree. Edit it by hand when you add a page.
 
 ## Programmatic pages (pSEO): the safe way
 
-A set of pages made from one template ships only when each page passes `bin/vawe-dev check seo-pseo`
+A set of pages made from one template ships only when each page passes `node quality/gates/seo-pseo.mjs`
 against a production build (`npm --prefix site run start -- -p 3187`, then `node quality/gates/seo-pseo.mjs --base http://localhost:3187`):
 
 - **Its own data.** Each page carries a measured value or text no sibling has. A page that only swaps a word is a doorway page.
@@ -55,10 +55,10 @@ Add a new set to `TEMPLATES` in `quality/gates/seo-pseo.mjs` in the same commit.
 
 ## Look at it before you say it is done
 
-Do not write a screenshot or link-check script: the verbs do it from the repo root.
+Do not write a screenshot or link-check script: the verbs of a vawe checkout (`../vawe`, or `VAWE_DIR`) do it.
 `bin/vawe new --from-url /,/blog --full` writes each route at 1440 and 390 (lazy images loaded, the dev server
 started and stopped for you) and says which route has page errors, failed requests or sideways overflow.
-`bin/vawe-dev check links` crawls the site and lists broken links, redirects and dead anchors; `--base https://vawe.dev`
+`vawe-dev check links` (in a vawe checkout) crawls the site and lists broken links, redirects and dead anchors; `--base https://vawe.dev`
 checks the live site. `node scripts/site/typography-audit.mjs` measures the type rules.
 
 ## Known gaps, so you do not rediscover them

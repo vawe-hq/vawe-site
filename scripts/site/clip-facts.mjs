@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { clipHash } from '../../harness/lib/clip-hash.mjs';
+import { clipHash } from '../../vendor/vawe/harness/lib/clip-hash.mjs';
 
 // Seconds, from the mvhd box of an mp4 (the move clips are plain H.264, so no ffprobe in prebuild).
 export function mp4Seconds(file) {

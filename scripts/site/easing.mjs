@@ -9,20 +9,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { EASE, EASE_HANDLES, easeFn, UI, BANDS } from '../../core/motion/presets.js';
-import { resolveHandle, HANDLE_REGISTRY } from '../../core/motion/motion.js';
-import { curveToLinear, spring, springDuration, springLinear } from '../../core/motion/springs.js';
-import * as curves from '../../core/motion/curves.js';
-import { FPS, sec, span, firstFrame, lateStart, EXIT, EXIT_EXAMPLE, EXIT_FALLBACK, popPeakAt, popSettleFrames, JOBS } from '../../core/motion/ease-jobs.js';
+import { EASE, EASE_HANDLES, easeFn, UI, BANDS } from '../../vendor/vawe/core/motion/presets.js';
+import { resolveHandle, HANDLE_REGISTRY } from '../../vendor/vawe/core/motion/motion.js';
+import { curveToLinear, spring, springDuration, springLinear } from '../../vendor/vawe/core/motion/springs.js';
+import * as curves from '../../vendor/vawe/core/motion/curves.js';
+import { FPS, sec, span, firstFrame, lateStart, EXIT, EXIT_EXAMPLE, EXIT_FALLBACK, popPeakAt, popSettleFrames, JOBS } from '../../vendor/vawe/core/motion/ease-jobs.js';
+import { vaweDirIfPresent } from './vawe-dir.mjs';
 import { VAWE_TEXT, vaweWords, FAMILY, DIRECTION, SPECIAL, CSS_TEXT } from './easing-text.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const OUT = path.join(root, 'site', 'lib', 'easing.json');
 const AE = JSON.parse(fs.readFileSync(path.join(root, 'scripts/site/data/ae-handles.json'), 'utf8'));
-const MOVES_DIR = path.join(root, 'prompts', 'moves');
+const VAWE = vaweDirIfPresent(root);
+const MOVES_DIR = VAWE && path.join(VAWE, 'prompts', 'moves');
 
-if (!fs.existsSync(MOVES_DIR)) {
-  console.log('~ prompts/moves is not here; using the committed site/lib/easing.json');
+if (!MOVES_DIR || !fs.existsSync(MOVES_DIR)) {
+  console.log('~ no vawe checkout with prompts/moves (set VAWE_DIR); using the committed site/lib/easing.json');
   process.exit(0);
 }
 const MOVES_JSON = JSON.parse(fs.readFileSync(path.join(root, 'site/lib/moves.json'), 'utf8'));

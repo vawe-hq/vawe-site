@@ -3,7 +3,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { PAGES, TOPICS } from '../../assets/brand-art/cards.js';
+import { PAGES, TOPICS } from '../../vendor/vawe/assets/brand-art/cards.js';
 import { SECTIONS, TOPICS as POST_TOPICS, parseFrontMatter } from '../../site/lib/blog-front-matter.mjs';
 import { smart } from '../../site/lib/typo.mjs';
 

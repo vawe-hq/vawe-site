@@ -22,12 +22,14 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { execFile } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { vaweDir } from './vawe-dir.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const LIST = path.join(ROOT, 'site/content/inspiration-posts.txt');
 const DATA = path.join(ROOT, 'site/content/inspiration.json');
 const POSTERS = path.join(ROOT, 'site/public/inspiration');
-const STAGES = path.join(ROOT, 'out/inspiration-stages.json');
+const VAWE = vaweDir(ROOT);
+const STAGES = path.join(VAWE, 'out/inspiration-stages.json');
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'inspiration-'));
 const sharp = createRequire(path.join(ROOT, 'site/package.json'))('sharp');
 
@@ -112,7 +114,7 @@ export function typesFrom(text, kept = []) {
 // ---------- requests ----------
 const run = (cmd, args) =>
   new Promise((resolve) => {
-    execFile(cmd, args, { cwd: ROOT, maxBuffer: 1 << 26 }, (error, stdout, stderr) => resolve({ ok: !error, stdout: String(stdout), stderr: String(stderr) }));
+    execFile(cmd, args, { cwd: VAWE, maxBuffer: 1 << 26 }, (error, stdout, stderr) => resolve({ ok: !error, stdout: String(stdout), stderr: String(stderr) }));
   });
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const lastLine = (s) => s.trim().split('\n').at(-1) ?? '';
@@ -173,7 +175,7 @@ async function poster(id, playback, duration) {
   if (fs.existsSync(out)) return { ok: true };
   const png = path.join(TMP, `${id}.png`);
   const at = (duration ? Math.min(Math.max(duration * 0.3, 1), 8) : 1).toFixed(1);
-  const still = await run(path.join(ROOT, 'bin/vawe'), ['frame', playback, '--at', at, '--out', png]);
+  const still = await run(path.join(VAWE, 'bin/vawe'), ['frame', playback, '--at', at, '--out', png]);
   if (!fs.existsSync(png)) return { ok: false, why: `still: ${lastLine(still.stderr || still.stdout)}` };
   for (let q = 80; q >= 40; q -= 10) {
     await sharp(png).resize({ width: POSTER_W, withoutEnlargement: true }).webp({ quality: q, effort: 6 }).toFile(out);

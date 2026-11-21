@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { copyShare, hubProse, inbound, internalLinks, mainOf, markdownLinks, mdBody, repeats, textOf } from '../../harness/lib/pseo.mjs';
+import { copyShare, hubProse, inbound, internalLinks, mainOf, markdownLinks, mdBody, repeats, textOf } from '../../quality/lib/pseo.mjs';
 
 const PROSE = 'Each video component is one markdown file with a clip, the CSS snippet and notes on when to use it in a film.';
 

@@ -9,8 +9,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { vaweDir } from './vawe-dir.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const VAWE = vaweDir(root);
 const OUT = path.join(root, 'site', 'public', 'blog', 'easing');
 const SECONDS = 3;
 
@@ -207,12 +209,12 @@ const env = { ...process.env, VAWE_AGENT: 'easing-rule-clips', VAWE_MODEL: 'clau
 fs.mkdirSync(OUT, { recursive: true });
 
 for (const r of rules) {
-  const dir = path.join(root, 'films', `blog-easing-${r.slug}`);
-  const draft = path.join(root, 'out', `blog-easing-${r.slug}-draft.mp4`);
+  const dir = path.join(VAWE, 'films', `blog-easing-${r.slug}`);
+  const draft = path.join(VAWE, 'out', `blog-easing-${r.slug}-draft.mp4`);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'page.html'), page(r));
   if (pagesOnly) continue;
-  execFileSync(path.join(root, 'bin', 'vawe'), ['dev', `films/blog-easing-${r.slug}/page.html`, '--fast', '--no-judge', '--silent', '--out', draft], { cwd: root, env, stdio: 'inherit' });
+  execFileSync(path.join(VAWE, 'bin', 'vawe'), ['dev', `films/blog-easing-${r.slug}/page.html`, '--fast', '--no-judge', '--silent', '--out', draft], { cwd: VAWE, env, stdio: 'inherit' });
   const base = path.join(OUT, r.slug);
   const scale = ['-vf', 'scale=640:-2'];
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', draft, ...scale, '-an', '-c:v', 'libx264', '-crf', '30', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', `${base}.mp4`]);

@@ -12,11 +12,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const OUT = path.join(root, 'site', 'lib', 'springs.json');
 
-if (!fs.existsSync(path.join(root, 'core', 'motion', 'springs.js'))) {
-  console.log('~ core/motion is not here; using the committed site/lib/springs.json');
+if (!fs.existsSync(path.join(root, 'vendor', 'vawe', 'core', 'motion', 'springs.js'))) {
+  console.log('~ vendor/vawe/core/motion is not here; using the committed site/lib/springs.json');
   process.exit(0);
 }
-const { SPRINGS, spring, springDuration, springLinear } = await import('../../core/motion/springs.js');
+const { SPRINGS, spring, springDuration, springLinear } = await import('../../vendor/vawe/core/motion/springs.js');
 
 const SAMPLES = 100;
 const LINEAR_STEPS = [40, 60, 80, 120, 160, 240];

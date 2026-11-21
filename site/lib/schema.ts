@@ -8,7 +8,7 @@
 // FAQPage is present only on the home FAQ, built in schema-content.ts from the data the page renders (lib/faq.ts).
 // Google no longer shows an FAQ rich result for it; it stays as entity data for answer engines.
 
-import pkg from "../../package.json";
+import pkg from "../../vendor/vawe/package.json";
 import { REPO_URL, SAME_AS, SITE_ALT_NAMES, SITE_DESCRIPTION as BRAND_DESCRIPTION, SITE_URL } from "./site";
 
 export { REPO_URL };

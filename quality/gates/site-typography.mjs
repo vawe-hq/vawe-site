@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // quality/gates/site-typography.mjs: does the site's source still obey site/DESIGN.md "Typography rules"?
 //
-//   node quality/gates/site-typography.mjs [--json]   ·   vawe-dev check site-typography
+//   node quality/gates/site-typography.mjs [--json]
 //
 // A static read, like seo-surface: it cannot see a rendered line length or a computed size (that is
 // scripts/site/typography-audit.mjs, run against a live server). It catches what rots in a diff:
@@ -14,7 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { gateFindings } from '../../harness/lib/findings.mjs';
+import { gateFindings } from '../../vendor/vawe/harness/lib/findings.mjs';
 import { copyNodes, copyProblem } from '../../scripts/site/typo-copy.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');

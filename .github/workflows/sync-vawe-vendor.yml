@@ -1,0 +1,47 @@
+# Pulls the engine files the site vendors from vawe-hq/vawe (public) into vendor/vawe and moves vendor/vawe/PIN.
+# Run it by hand after an engine change that the site needs: Actions, "sync vawe vendor", Run workflow.
+name: sync vawe vendor
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: vawe-hq/vawe branch, tag or commit to vendor
+        default: main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-vawe-vendor
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          repository: vawe-hq/vawe
+          ref: ${{ inputs.ref }}
+          path: vawe
+          sparse-checkout: |
+            bin/vawe
+            package.json
+            core/motion
+            generators/media/fonts.mjs
+            harness/media/fonts.lock.json
+            harness/lib/clip-hash.mjs
+            harness/lib/findings.mjs
+            assets/brand-art
+          sparse-checkout-cone-mode: false
+      - run: node scripts/vendor-sync.mjs vawe
+      - name: Commit
+        run: |
+          git add vendor
+          if git diff --cached --quiet; then echo "vendor/vawe is current"; exit 0; fi
+          git -c user.name="vawe-hq sync" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "vendor: sync from $(cat vendor/vawe/PIN)"
+          git push origin HEAD:${{ github.ref_name }}

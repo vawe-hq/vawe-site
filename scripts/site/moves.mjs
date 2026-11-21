@@ -9,9 +9,11 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { clipFacts } from './clip-facts.mjs';
+import { vaweDirIfPresent } from './vawe-dir.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const SRC = path.join(root, 'prompts', 'moves');
+const VAWE = vaweDirIfPresent(root);
+const SRC = path.join(VAWE || root, 'prompts', 'moves');
 const OUT_DIR = path.join(root, 'site', 'public', 'moves');
 const DATA = path.join(root, 'site', 'lib', 'moves.json');
 const INDEX = path.join(OUT_DIR, 'index.json');
@@ -21,8 +23,8 @@ const NOT_MOVES = new Set(['README.md', 'RECIPES.md']);
 const DEFAULT_LOOK = 'vawe';
 const DEFAULT_THEME = 'dark';
 
-const { EASE_HANDLES } = await import(pathToFileURL(path.join(root, 'core', 'motion', 'presets.js')));
-const { resolveHandle } = await import(pathToFileURL(path.join(root, 'core', 'motion', 'motion.js')));
+const { EASE_HANDLES } = await import(pathToFileURL(path.join(root, 'vendor', 'vawe', 'core', 'motion', 'presets.js')));
+const { resolveHandle } = await import(pathToFileURL(path.join(root, 'vendor', 'vawe', 'core', 'motion', 'motion.js')));
 
 const read = (p) => fs.readFileSync(p, 'utf8');
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -218,7 +220,7 @@ function easesOf(...sources) {
 // (an untracked clip). The sitemap and the VideoObject read it, so it must not be "now".
 function firstCommitted(file) {
   try {
-    const out = execFileSync('git', ['log', '--format=%cI', '--', file], { cwd: root, encoding: 'utf8' }).trim().split('\n').pop();
+    const out = execFileSync('git', ['log', '--format=%cI', '--', file], { cwd: VAWE, encoding: 'utf8' }).trim().split('\n').pop();
     if (out) return out.slice(0, 10);
   } catch { /* no git here: fall through to mtime */ }
   return new Date(fs.statSync(file).mtimeMs).toISOString().slice(0, 10);
@@ -227,7 +229,7 @@ function firstCommitted(file) {
 function lastChanged(files) {
   const existing = files.filter((f) => fs.existsSync(f));
   try {
-    const out = execFileSync('git', ['log', '-1', '--format=%cI', '--', ...existing], { cwd: root, encoding: 'utf8' }).trim();
+    const out = execFileSync('git', ['log', '-1', '--format=%cI', '--', ...existing], { cwd: VAWE, encoding: 'utf8' }).trim();
     if (out) return out.slice(0, 10);
   } catch { /* no git here: fall through to mtime */ }
   const newest = Math.max(...existing.map((f) => fs.statSync(f).mtimeMs));
@@ -320,10 +322,9 @@ function writeIndex(moves, data) {
 }
 
 // ---- main -------------------------------------------------------------------------------------------
-// The Docker build context carries site/ but not prompts/ (.dockerignore is an allowlist), so the
-// image builds from the committed moves.json and site/public/moves.
-if (!fs.existsSync(SRC)) {
-  console.log('~ prompts/moves is not here; using the committed site/lib/moves.json');
+// The Docker build has no vawe checkout, so the image builds from the committed moves.json and site/public/moves.
+if (!VAWE || !fs.existsSync(SRC)) {
+  console.log('~ no vawe checkout with prompts/moves (set VAWE_DIR); using the committed site/lib/moves.json');
   process.exit(0);
 }
 
