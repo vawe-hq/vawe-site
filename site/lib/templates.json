@@ -1,0 +1,481 @@
+{
+ "categories": [
+  {
+   "id": "titles",
+   "label": "Titles"
+  },
+  {
+   "id": "logos",
+   "label": "Logos"
+  },
+  {
+   "id": "product",
+   "label": "Product"
+  },
+  {
+   "id": "launch",
+   "label": "Launch"
+  },
+  {
+   "id": "explainer",
+   "label": "Explainer"
+  },
+  {
+   "id": "social-proof",
+   "label": "Social proof"
+  },
+  {
+   "id": "devices",
+   "label": "Devices"
+  },
+  {
+   "id": "art",
+   "label": "Art"
+  }
+ ],
+ "templates": [
+  {
+   "id": "ai-chat-demo",
+   "title": "AI chat demo",
+   "summary": "A chat product demo: a prompt is typed, the answer streams in, and one key part is called out.",
+   "category": "product",
+   "tier": "free",
+   "length": 10,
+   "aspect": "16:9",
+   "structure": "prompt types in the composer, bubble flies up on a spring, answer streams in chunks, corner marks and a label call out one key phrase, the screen holds",
+   "inputs": [
+    {
+     "key": "brand",
+     "label": "Product name",
+     "default": "Lumen",
+     "where": ".brand in the sidebar, world chat"
+    },
+    {
+     "key": "greeting",
+     "label": "Greeting",
+     "default": "What do you want to work out?",
+     "where": "#greet, world chat"
+    },
+    {
+     "key": "placeholder",
+     "label": "Composer placeholder",
+     "default": "Ask Lumen anything",
+     "where": "#ph, world chat"
+    },
+    {
+     "key": "prompt",
+     "label": "Prompt that is typed",
+     "default": "Save for a €30k car in 2 years?",
+     "where": "#user, world chat"
+    },
+    {
+     "key": "chatname",
+     "label": "Chat name in the sidebar after the answer",
+     "default": "Saving for a car",
+     "where": "#n2, world chat"
+    },
+    {
+     "key": "model",
+     "label": "Model name",
+     "default": "Lumen 2",
+     "where": ".top b, world chat"
+    },
+    {
+     "key": "heading",
+     "label": "Answer heading",
+     "default": "A simple monthly plan",
+     "where": "BLOCKS h2 in the script, world chat"
+    },
+    {
+     "key": "line1",
+     "label": "Answer line 1",
+     "default": "Divide the price by the months: €30,000 ÷ 24.",
+     "where": "BLOCKS first p in the script, world chat"
+    },
+    {
+     "key": "line2",
+     "label": "Answer line before the key part",
+     "default": "You need to save",
+     "where": "BLOCKS second p in the script, world chat"
+    },
+    {
+     "key": "keypart",
+     "label": "Key part that is called out (the double stars mark it)",
+     "default": "**€1,250 a month**",
+     "where": "BLOCKS third p in the script, world chat"
+    },
+    {
+     "key": "bullet",
+     "label": "Answer bullet",
+     "default": "A 4% account trims that to about €1,200.",
+     "where": "BLOCKS li in the script, world chat"
+    },
+    {
+     "key": "callout",
+     "label": "Call-out label",
+     "default": "Your goal",
+     "where": "CALLOUT in the script, world chat"
+    },
+    {
+     "key": "footnote",
+     "label": "Footnote",
+     "default": "Lumen can make mistakes. Check important numbers.",
+     "where": ".fine, world chat"
+    },
+    {
+     "key": "username",
+     "label": "User name in the sidebar",
+     "default": "Sam",
+     "where": ".me in the sidebar, world chat"
+    }
+   ],
+   "slots": [],
+   "tags": [
+    "chat",
+    "ai",
+    "streaming",
+    "call-out"
+   ],
+   "hash": "d89021cc141d",
+   "hasSource": true
+  },
+  {
+   "id": "kinetic-quote",
+   "title": "Kinetic quote",
+   "summary": "An 8 s kinetic type piece that sets one short quote word by word, ending on one word that fills the frame.",
+   "category": "titles",
+   "tier": "free",
+   "length": 8,
+   "aspect": "16:9",
+   "structure": "typed word, decoded word, two words slam on dark, two words tilt in, last word fills the frame, typed credit",
+   "inputs": [
+    {
+     "key": "word-1",
+     "label": "Word 1 (typed)",
+     "default": "Say",
+     "where": "p#say in world say"
+    },
+    {
+     "key": "word-2",
+     "label": "Word 2 (decoded, up to 5 glyphs)",
+     "default": "less.",
+     "where": "h1#less in world less"
+    },
+    {
+     "key": "word-3",
+     "label": "Word 3 (slams)",
+     "default": "Mean",
+     "where": "span.m1 in world mean"
+    },
+    {
+     "key": "word-4",
+     "label": "Word 4 (slams)",
+     "default": "it.",
+     "where": "span.m2 in world mean"
+    },
+    {
+     "key": "word-5",
+     "label": "Word 5 (tilts in)",
+     "default": "Make",
+     "where": "h1.k1 in world make"
+    },
+    {
+     "key": "word-6",
+     "label": "Word 6 (tilts in)",
+     "default": "it",
+     "where": "h1.k2 in world make"
+    },
+    {
+     "key": "word-7",
+     "label": "Last word (fills the frame, up to 5 glyphs)",
+     "default": "move.",
+     "where": "h1#giant in world move"
+    },
+    {
+     "key": "credit",
+     "label": "Credit (typed)",
+     "default": "Northwind Type Studio",
+     "where": "p#credit in world credit"
+    }
+   ],
+   "slots": [],
+   "tags": [
+    "kinetic type",
+    "quote",
+    "typography"
+   ],
+   "hash": "acf59ff099b1",
+   "hasSource": true
+  },
+  {
+   "id": "terminal-demo",
+   "title": "Terminal demo",
+   "summary": "A CLI demo: a command is typed, output streams, a result lands, and the tool name and install line close it.",
+   "category": "product",
+   "tier": "free",
+   "length": 12,
+   "aspect": "16:9",
+   "structure": "command types with a block caret, steps print as whole rows, a full-width LIVE band lands, the caret flies to the install line, name and install command close",
+   "inputs": [
+    {
+     "key": "folder",
+     "label": "Folder in the prompt",
+     "default": "~/acme/api",
+     "where": ".dir in #cmdrow and #row2, world run"
+    },
+    {
+     "key": "branch",
+     "label": "Branch in the prompt",
+     "default": " main",
+     "where": ".br in #cmdrow and #row2, world run"
+    },
+    {
+     "key": "command",
+     "label": "Command that is typed",
+     "default": "halcyon deploy --env production",
+     "where": "#cmd in world run"
+    },
+    {
+     "key": "version",
+     "label": "Tool name and version",
+     "default": "halcyon 2.4",
+     "where": ".strong in #head, world run"
+    },
+    {
+     "key": "headline",
+     "label": "Header line",
+     "default": " · deploying api to production",
+     "where": ".out in #head, world run"
+    },
+    {
+     "key": "step1",
+     "label": "Step 1 running",
+     "default": "Building image",
+     "where": "#s1 .r, world run"
+    },
+    {
+     "key": "step1done",
+     "label": "Step 1 done",
+     "default": "Built image",
+     "where": "#s1 .d, world run"
+    },
+    {
+     "key": "step1time",
+     "label": "Step 1 time",
+     "default": "1.8s",
+     "where": "#s1 .tm, world run"
+    },
+    {
+     "key": "step2",
+     "label": "Step 2 running",
+     "default": "Pushing 3 layers",
+     "where": "#s2 .r, world run"
+    },
+    {
+     "key": "step2done",
+     "label": "Step 2 done",
+     "default": "Pushed 3 layers",
+     "where": "#s2 .d, world run"
+    },
+    {
+     "key": "step2time",
+     "label": "Step 2 time",
+     "default": "0.9s",
+     "where": "#s2 .tm, world run"
+    },
+    {
+     "key": "layer1",
+     "label": "Layer row 1",
+     "default": "  a3f9c21  12.4 MB",
+     "where": "#l1, world run"
+    },
+    {
+     "key": "layer2",
+     "label": "Layer row 2",
+     "default": "  b81d07e   3.1 MB",
+     "where": "#l2, world run"
+    },
+    {
+     "key": "layer3",
+     "label": "Layer row 3",
+     "default": "  c40e5a9   0.8 MB",
+     "where": "#l3, world run"
+    },
+    {
+     "key": "step3",
+     "label": "Step 3 running",
+     "default": "Running migrations",
+     "where": "#s3 .r, world run"
+    },
+    {
+     "key": "step3done",
+     "label": "Step 3 done",
+     "default": "Ran 2 migrations",
+     "where": "#s3 .d, world run"
+    },
+    {
+     "key": "step3time",
+     "label": "Step 3 time",
+     "default": "0.4s",
+     "where": "#s3 .tm, world run"
+    },
+    {
+     "key": "warning",
+     "label": "Warning row",
+     "default": "! DEBUG_SQL was on: turned off for production",
+     "where": "#warn, world run"
+    },
+    {
+     "key": "step4",
+     "label": "Step 4 running",
+     "default": "Rolling out",
+     "where": "#s4 .r, world run"
+    },
+    {
+     "key": "step4done",
+     "label": "Step 4 done",
+     "default": "Rolled out 4 of 4 instances",
+     "where": "#s4 .d, world run"
+    },
+    {
+     "key": "step4time",
+     "label": "Step 4 time",
+     "default": "1.5s",
+     "where": "#s4 .tm, world run"
+    },
+    {
+     "key": "step5",
+     "label": "Step 5 running",
+     "default": "Checking health",
+     "where": "#s5 .r, world run"
+    },
+    {
+     "key": "step5done",
+     "label": "Step 5 done",
+     "default": "Health checks passed",
+     "where": "#s5 .d, world run"
+    },
+    {
+     "key": "step5time",
+     "label": "Step 5 time",
+     "default": "1.1s",
+     "where": "#s5 .tm, world run"
+    },
+    {
+     "key": "badge",
+     "label": "Result badge",
+     "default": "LIVE",
+     "where": "#res1 first span, world run"
+    },
+    {
+     "key": "result",
+     "label": "Result line",
+     "default": "api deployed in 5.7s",
+     "where": "#res1 second span, world run"
+    },
+    {
+     "key": "url",
+     "label": "Link",
+     "default": "https://api.acme.dev",
+     "where": ".url in #res2, world run"
+    },
+    {
+     "key": "hint",
+     "label": "Hint under the link",
+     "default": "undo any time with halcyon rollback",
+     "where": "#res3, world run"
+    },
+    {
+     "key": "title",
+     "label": "Window title",
+     "default": "acme/api: halcyon",
+     "where": ".ttl, world run"
+    },
+    {
+     "key": "name",
+     "label": "Tool name",
+     "default": "halcyon",
+     "where": "h1.mark before the full stop, world close"
+    },
+    {
+     "key": "tagline",
+     "label": "Tagline",
+     "default": "Ship from the terminal.",
+     "where": "#tag, world close"
+    },
+    {
+     "key": "install",
+     "label": "Install command",
+     "default": "npm i -g halcyon",
+     "where": "#inst, world close"
+    },
+    {
+     "key": "installout",
+     "label": "Install output",
+     "default": "added 1 package in 2s",
+     "where": "#ins2, world close"
+    },
+    {
+     "key": "nextstep",
+     "label": "Next step line",
+     "default": "run halcyon init to begin",
+     "where": "#ins3, world close"
+    }
+   ],
+   "slots": [],
+   "tags": [
+    "terminal",
+    "cli",
+    "developer tool",
+    "typing"
+   ],
+   "hash": "daded557f591",
+   "hasSource": true
+  },
+  {
+   "id": "title-sting",
+   "title": "Title sting",
+   "summary": "A 5 s sting for any product name: wind streaks, a needle, the name sliced in, then a tagline.",
+   "category": "titles",
+   "tier": "free",
+   "length": 5,
+   "aspect": "16:9",
+   "structure": "needle and wind streaks, the name slices in band by band, the tagline rises, one edge turns night to paper",
+   "inputs": [
+    {
+     "key": "name",
+     "label": "Product name",
+     "default": "Northwind",
+     "where": "h1.word in .lockup.night and in .lockup.paper (write it in both)"
+    },
+    {
+     "key": "tagline-1",
+     "label": "Tagline, word 1",
+     "default": "Find",
+     "where": "first span of p.line in both lockups"
+    },
+    {
+     "key": "tagline-2",
+     "label": "Tagline, word 2",
+     "default": "your",
+     "where": "second span of p.line in both lockups"
+    },
+    {
+     "key": "tagline-3",
+     "label": "Tagline, word 3",
+     "default": "way",
+     "where": "third span of p.line in both lockups"
+    }
+   ],
+   "slots": [],
+   "tags": [
+    "logo",
+    "wordmark",
+    "sting",
+    "wipe"
+   ],
+   "hash": "030a0e2fbb1e",
+   "hasSource": true
+  }
+ ]
+}

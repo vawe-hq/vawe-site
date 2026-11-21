@@ -9,7 +9,7 @@
 # absent from the context until somebody says otherwise, and the failure mode of forgetting is a build
 # that stops with "not found" instead of one that quietly grows.
 #
-#   Dockerfile:    scripts vendor site (site/docker-start.sh included)
+#   Dockerfile:    scripts vendor marketplace site (site/docker-start.sh included)
 #
 # EDITING THIS FILE: add a COPY, add its `!` line here in the same commit. `quality/gates/site-build-check.mjs` builds
 # the context and prints what is in it.
@@ -21,6 +21,8 @@
 !scripts
 # The vawe engine files the build reads, copied from vawe-hq/vawe by scripts/vendor-sync.mjs.
 !vendor
+# scripts/site/marketplace.mjs reads the listings, creators, jobs and designers.
+!marketplace
 
 # ── the web app ─────────────────────────────────────────────────────────────────────────────
 !site
