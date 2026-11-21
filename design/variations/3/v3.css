@@ -1,0 +1,106 @@
+/* Variation 3, "The screening room": few, large films; type set like film credits; the playhead in white. Tokens only. */
+
+/* ===== HEADER: four links and More on desktop; on a phone the mark, two links, More (a bottom sheet) and GitHub ===== */
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--sp-4);height:64px}
+.nav{display:flex;align-items:center;gap:var(--sp-1);font-size:var(--fs-ui);font-weight:500}
+.nav > a,.nav > [aria-current]{display:inline-flex;align-items:center;min-height:var(--hit);padding:0 var(--sp-3);border-radius:var(--r-ctl);color:var(--ink-2);white-space:nowrap}
+.nav > [aria-current]{color:var(--ink);background:var(--raised)}
+@media (hover:hover){ .nav > a:hover{background:var(--raised);color:var(--ink)} }
+.nav .short{display:none}
+.bar .ghbtn{justify-self:end}
+.more{position:relative}
+.more summary{list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:var(--hit);padding:0 var(--sp-3);border-radius:var(--r-ctl);color:var(--ink-2);cursor:pointer}
+.more summary::-webkit-details-marker{display:none}
+.more summary svg{width:12px;height:12px;transition:rotate var(--dur-state) var(--ease-out)}
+.more[open] summary{background:var(--raised);color:var(--ink)}
+.more[open] summary svg{rotate:180deg}
+.drop{position:absolute;top:calc(100% + var(--sp-2));left:50%;translate:-50% 0;z-index:var(--z-nav);width:260px;padding:var(--sp-2);background:var(--surface);border-radius:var(--r);box-shadow:var(--outline)}
+.drop a{display:flex;align-items:center;justify-content:space-between;min-height:var(--hit);padding:0 var(--sp-3);border-radius:var(--r-ctl);color:var(--ink-2)}
+.drop a span{font:400 var(--fs-code) var(--font-mono),monospace;color:var(--dim)}
+@media (hover:hover){ .drop a:hover{background:var(--raised);color:var(--ink)} }
+.drop .phone-only{display:none}
+@media (max-width:640px){
+  .bar{display:flex;gap:var(--sp-1);height:60px}
+  .bar .mark .word{display:none}
+  .bar .mark{margin-right:auto;padding-right:var(--sp-2)}
+  .nav .long,.nav .wide{display:none}
+  .nav .short{display:inline}
+  .nav > a,.nav > [aria-current],.more summary{padding:0 var(--sp-2)}
+  .ghbtn .gh-word{display:none}
+  .ghbtn{width:var(--hit);justify-content:center;padding:0}
+  .drop{position:fixed;inset:auto 0 0 0;top:auto;left:0;translate:none;width:auto;padding:var(--sp-4) var(--sp-4) var(--sp-6);border-radius:var(--r) var(--r) 0 0}
+  .drop::before{content:"";display:block;width:36px;height:4px;margin:0 auto var(--sp-3);border-radius:var(--r-pill);background:var(--line-2)}
+  .drop a{min-height:52px;font-size:var(--fs-lead);border-bottom:1px solid var(--line);border-radius:0}
+  .drop .phone-only{display:flex}
+}
+
+/* ===== CREDITS: the type voice of a film's end roll, in Plex Mono ===== */
+.credits{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-2) var(--sp-5);font:400 var(--fs-code)/1.6 var(--font-mono),monospace;letter-spacing:var(--track-caps);text-transform:uppercase}
+.credits dt{color:var(--muted);text-align:right}
+.credits dd{color:var(--ink)}
+
+/* ===== HOME: the film letterboxed on black, the title and the credits under it ===== */
+.screen{padding:var(--sp-5) 0 0}
+.screen .frame{position:relative;aspect-ratio:16/9;max-height:calc(100svh - 64px - 180px);margin:0 auto;border-radius:28px;overflow:hidden;border:1px solid var(--line-2);background:var(--bg)}
+.screen video,.screen .frame img{width:100%;height:100%;object-fit:cover}
+.screen .live{position:absolute;left:var(--sp-5);top:var(--sp-5);display:inline-flex;align-items:center;gap:var(--sp-2);padding:var(--sp-1) var(--sp-3);border-radius:var(--r-pill);background:rgba(0,0,0,.85);color:var(--ink-2)}
+.screen .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.title-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--sp-7);align-items:end;max-width:1160px;margin:0 auto;padding:var(--sp-6) 0 var(--sp-8)}
+.title-row h1{font-size:clamp(2.4rem,5.2vw,4.5rem);line-height:.95;letter-spacing:-.06em}
+.title-row .lede{color:var(--ink-2);font-size:var(--fs-lead);margin-top:var(--sp-4);max-width:44ch}
+.row{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+.title-row .row{margin-top:var(--sp-5)}
+@media (max-width:900px){ .title-row{grid-template-columns:minmax(0,1fr);gap:var(--sp-6)} .credits dt{text-align:left} }
+@media (max-width:640px){ .screen .frame{border-radius:16px} .screen{padding-top:var(--sp-2)} .title-row{padding-top:var(--sp-5)} }
+
+/* ===== GALLERY: one film now showing, the rest of the reel under it ===== */
+.col{max-width:1160px;margin:0 auto}
+.phead{display:flex;justify-content:space-between;align-items:end;gap:var(--sp-5);flex-wrap:wrap;padding:var(--sp-7) 0 var(--sp-5)}
+.phead h1{font-size:var(--fs-h1);line-height:var(--lh-display);letter-spacing:var(--track-display)}
+.phead p{color:var(--muted);margin-top:var(--sp-2);max-width:var(--measure)}
+.tabs{display:flex;gap:var(--sp-1)}
+.tabs button{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:var(--hit);padding:0 var(--sp-3);border:0;border-radius:var(--r-ctl);background:none;color:var(--muted);font:500 var(--fs-ui) var(--font-sans),sans-serif;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--raised);color:var(--ink)}
+.tabs .n{font:400 var(--fs-code) var(--font-mono),monospace;color:var(--dim)}
+.feature{position:relative;display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:var(--sp-6);align-items:end}
+.film{position:relative;display:block;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);background:var(--bg)}
+.feature .film{border-radius:28px}
+.film img{width:100%;height:100%;object-fit:cover}
+.film .marks{position:absolute;inset:var(--sp-3);opacity:0;transition:opacity var(--dur-state) var(--ease-out)}
+.film .marks img{width:100%;height:100%;object-fit:fill}
+.film:focus-visible .marks{opacity:1}
+@media (hover:hover){ .item:hover .marks{opacity:1} .item:hover .film{border-color:var(--muted)} }
+.feature .side{display:grid;gap:var(--sp-4);padding-bottom:var(--sp-2)}
+.feature .side .meta{color:var(--ink)}
+.feature h2{font-size:var(--fs-panel);letter-spacing:var(--track-head);line-height:var(--lh-head)}
+.feature h2 a::after{content:"";position:absolute;inset:0}
+.feature p{color:var(--ink-2)}
+.reel{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-8);padding-top:var(--sp-5);border-top:1px solid var(--line)}
+.reel .item{position:relative;display:grid;gap:var(--sp-3)}
+.reel h3{font-size:var(--fs-body);letter-spacing:var(--track-sub)}
+.reel h3 a::after{content:"";position:absolute;inset:0}
+.reel .cred{display:flex;gap:var(--sp-3);font:400 var(--fs-code) var(--font-mono),monospace;letter-spacing:var(--track-caps);text-transform:uppercase;color:var(--muted)}
+.reel-h{display:flex;justify-content:space-between;margin-top:var(--sp-8)}
+@media (max-width:900px){ .feature{grid-template-columns:minmax(0,1fr)} .reel{grid-template-columns:1fr 1fr} }
+@media (max-width:640px){ .reel{grid-template-columns:minmax(0,1fr)} .feature .film{border-radius:16px} .phead{padding-top:var(--sp-6)} }
+
+/* ===== DETAIL: the film big, then the quote set as the eight things you change ===== */
+.d-film{margin-top:var(--sp-3)}
+.d-film .film{border-radius:28px}
+.d-cap{display:flex;justify-content:space-between;gap:var(--sp-3);flex-wrap:wrap;padding:var(--sp-3) var(--sp-1) 0}
+.d-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--sp-8);margin-top:var(--sp-8);align-items:start}
+.d-grid h1{font-size:var(--fs-h1);line-height:var(--lh-display);letter-spacing:var(--track-display)}
+.d-grid .use{color:var(--ink-2);margin-top:var(--sp-3)}
+.d-grid .credits{margin-top:var(--sp-6)}
+.d-grid .credits dt{text-align:left}
+.script-h{font:500 var(--fs-label) var(--font-mono),monospace;letter-spacing:var(--track-caps);text-transform:uppercase;color:var(--muted)}
+.script{margin-top:var(--sp-4);font-size:clamp(2rem,4.4vw,3.6rem);font-weight:600;line-height:1.12;letter-spacing:-.045em;color:var(--ink)}
+.script .w{position:relative;text-decoration:underline;text-decoration-color:var(--line-2);text-decoration-thickness:2px;text-underline-offset:.12em}
+.script sup{font:400 var(--fs-label) var(--font-mono),monospace;letter-spacing:0;color:var(--dim);vertical-align:super;margin:0 .15em 0 .05em}
+.script .cr{display:block;margin-top:var(--sp-4);font-size:var(--fs-lead);letter-spacing:-.01em;color:var(--ink-2)}
+.d-grid .code{margin-top:var(--sp-6)}
+.d-grid .note{color:var(--muted);font-size:var(--fs-ui);margin-top:var(--sp-4);max-width:var(--measure)}
+@media (max-width:900px){ .d-grid{grid-template-columns:minmax(0,1fr);gap:var(--sp-6);margin-top:var(--sp-6)} }
+@media (max-width:640px){ .d-film .film{border-radius:16px} }
+.end{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-5);flex-wrap:wrap;margin:var(--sp-9) 0 var(--sp-7);padding-top:var(--sp-6);border-top:1px solid var(--line)}
+.end h2{font-size:var(--fs-panel);letter-spacing:var(--track-head)}

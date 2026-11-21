@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" preserveAspectRatio="none" fill="none">
+  <!-- Viewfinder corners for the selected film: four 1.5 px brackets in --ink (#fff). Stretched over any 16:9 frame; vector-effect keeps the stroke 1.5 px. -->
+  <g stroke="#fff" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linecap="square">
+    <path d="M2 12V2H14" vector-effect="non-scaling-stroke"/>
+    <path d="M146 2H158V12" vector-effect="non-scaling-stroke"/>
+    <path d="M158 78V88H146" vector-effect="non-scaling-stroke"/>
+    <path d="M14 88H2V78" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>

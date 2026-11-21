@@ -1,0 +1,41 @@
+/* design/base.css: the shipped rules every variation shares, restated from site/app/globals.css with the same tokens. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans),system-ui,sans-serif;font-size:var(--fs-body);line-height:var(--lh-body);
+  letter-spacing:-.004em;-webkit-font-smoothing:antialiased;font-kerning:normal;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance;font-weight:var(--fw-head);color:var(--ink)}
+p,li,dd{text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+img,video,svg{display:block;max-width:100%}
+::selection{background:var(--accent);color:var(--accent-ink)}
+.mono{font-family:var(--font-mono),monospace}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:var(--focus-ring);outline-offset:2px;border-radius:var(--r-in)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.mark{display:flex;align-items:center;gap:var(--sp-2);font-weight:600;font-size:var(--fs-lead);letter-spacing:-.02em;color:var(--ink);min-height:var(--hit)}
+.glyph{width:24px;height:26px;color:var(--ink);flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:44px;font:600 var(--fs-ui)/var(--lh-ui) var(--font-sans),sans-serif;
+  padding:var(--sp-3) var(--sp-5);border-radius:var(--r-ctl);border:1px solid transparent;cursor:pointer;
+  transition:background-color var(--dur-hover) var(--ease-out),scale var(--dur-press) var(--ease-press)}
+.btn:active{scale:var(--press)}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-ghost{background:var(--raised);color:var(--ink)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--line-2)}
+@media (hover:hover){ .btn-primary:hover{background:var(--ink-2)} .btn-ghost:hover{background:var(--raised-2)} .btn-line:hover{background:var(--raised);border-color:var(--muted)} }
+.meta{font-family:var(--font-mono),monospace;font-size:var(--fs-label);letter-spacing:var(--track-caps);text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.panel{background:var(--surface);border-radius:var(--r);box-shadow:var(--ring)}
+.ghbtn{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:var(--hit);padding:0 var(--sp-3);border-radius:var(--r-ctl);background:var(--ink);color:var(--bg);font-weight:600;font-size:var(--fs-ui);flex:none}
+.ghbtn svg{width:15px;height:15px}
+/* The poster chips of the shipped card (.mv-chip): mono on 72% black with a white 14% ring. */
+.chip{position:absolute;z-index:var(--z-badge);display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 7px;border-radius:var(--r-in);
+  background:rgba(0,0,0,.72);box-shadow:0 0 0 1px rgba(255,255,255,.14);color:var(--ink);font:500 var(--fs-label)/1 var(--font-mono),monospace;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.chip-pro{background:var(--ink);color:var(--bg);box-shadow:none}
+.code{background:var(--bg);border-radius:var(--r);box-shadow:var(--ring);overflow:hidden}
+.code-bar{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:var(--hit);padding:0 var(--sp-2) 0 var(--sp-4);border-bottom:1px solid var(--line)}
+.code-bar button{min-height:32px;padding:0 var(--sp-3);border:0;border-radius:var(--r-ctl);background:var(--raised);color:var(--ink);font:500 var(--fs-ui) var(--font-sans),sans-serif;cursor:pointer}
+.code pre{margin:0;padding:var(--sp-4);overflow-x:auto;font:400 var(--fs-code)/1.75 var(--font-mono),monospace;color:var(--ink-2)}
+.code pre i{font-style:normal;color:var(--dim)}
+.code pre b{font-weight:500;color:var(--ink)}
+@media (max-width:640px){ :root{--hit:44px;--fs-body:.9375rem;--fs-lead:1.0625rem} .wrap{padding:0 var(--sp-4)} }
+@media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms !important;animation:none !important} }
+img{height:auto}

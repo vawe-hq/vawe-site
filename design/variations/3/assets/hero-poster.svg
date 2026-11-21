@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Three lanes and a playhead sweeping across them on a faint grid">
+  <!-- The logo's idea at screen size: three lanes, a playhead with the shield head, white on the ground. The mark itself is not redrawn or animated.
+       Colours are site tokens: --bg #000, --surface-2 #111, --line-2 #3a3a3a, --ink #fff, --muted #a1a1a1. Loops every 6 s; reduced motion parks the playhead. -->
+  <style>
+    .grid{stroke:#111;stroke-width:1}
+    .lane{fill:#fff}
+    .ghost{fill:#3a3a3a}
+    .tick{stroke:#3a3a3a;stroke-width:2}
+    #ph{animation:sweep 6s cubic-bezier(.645,.045,.355,1) infinite alternate}
+    @keyframes sweep{from{transform:translateX(0)}to{transform:translateX(1040px)}}
+    .lit{animation:lit 6s cubic-bezier(.645,.045,.355,1) infinite alternate;transform-box:fill-box;transform-origin:left center}
+    @keyframes lit{from{transform:scaleX(.02)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion:reduce){#ph{animation:none;transform:translateX(640px)}.lit{animation:none;transform:scaleX(.62)}}
+  </style>
+  <rect width="1600" height="900" fill="#000"/>
+  <g class="grid">
+    <path d="M0 96H1600M0 192H1600M0 288H1600M0 384H1600M0 480H1600M0 576H1600M0 672H1600M0 768H1600M0 864H1600"/>
+    <path d="M128 0V900M224 0V900M320 0V900M416 0V900M512 0V900M608 0V900M704 0V900M800 0V900M896 0V900M992 0V900M1088 0V900M1184 0V900M1280 0V900M1376 0V900M1472 0V900"/>
+  </g>
+  <g class="tick"><path d="M280 300V276M410 300V286M540 300V286M670 300V286M800 300V276M930 300V286M1060 300V286M1190 300V286M1320 300V276"/></g>
+  <!-- the lanes: dim to the right of the playhead, lit to its left -->
+  <rect class="ghost" x="280" y="340" width="1040" height="56" rx="8"/>
+  <rect class="ghost" x="280" y="436" width="1040" height="56" rx="8"/>
+  <rect class="ghost" x="280" y="532" width="1040" height="56" rx="8"/>
+  <rect class="lane lit" x="280" y="340" width="1040" height="56" rx="8"/>
+  <rect class="lane lit" x="280" y="436" width="1040" height="56" rx="8"/>
+  <rect class="lane lit" x="280" y="532" width="1040" height="56" rx="8"/>
+  <g id="ph">
+    <path fill="#000" d="M262 304H298V340H290V636H270V340H262z"/>
+    <path fill="#fff" d="M266 300H294V320H286V332H284V632H276V332H274V320H266z"/>
+  </g>
+</svg>

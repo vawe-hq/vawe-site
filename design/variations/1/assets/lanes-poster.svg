@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Five layer lanes with clip blocks, keyframes and a playhead">
+  <!-- Colours are the site tokens (globals.css :root), copied as custom properties so the file stands alone. No text: the page sets the lane names beside it. -->
+  <style>
+    svg{--bg:#000;--surface:#0a0a0a;--surface-2:#111;--line:#242424;--line-2:#3a3a3a;--ink:#fff;--accent:#3291ff;
+      --lane-text:#a67dff;--lane-shape:#e0714f;--lane-camera:#4fb3d9;--lane-comp:#cf5b98;--lane-sound:#0eaf80}
+    .trk{fill:var(--surface-2)}
+    .b{stroke:rgba(255,255,255,.16);stroke-width:1}
+    .t{fill:color-mix(in srgb,var(--lane-text) 78%,#000)} .s{fill:color-mix(in srgb,var(--lane-shape) 78%,#000)}
+    .c{fill:color-mix(in srgb,var(--lane-camera) 78%,#000)} .m{fill:color-mix(in srgb,var(--lane-comp) 78%,#000)}
+    .snd{fill:var(--lane-sound)}
+    .k{fill:var(--ink);stroke:rgba(0,0,0,.55)}
+    .tick{stroke:var(--line-2);stroke-width:1}
+    .ph{fill:var(--accent)}
+    #head{animation:scan 9s linear infinite}
+    @keyframes scan{from{transform:translateX(0)}to{transform:translateX(560px)}}
+    @media (prefers-reduced-motion:reduce){#head{animation:none;transform:translateX(212px)}}
+  </style>
+  <rect width="640" height="360" fill="var(--bg)"/>
+  <rect x="16" y="16" width="608" height="328" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+  <g class="tick">
+    <path d="M40 54V40M96 54V44M152 54V44M208 54V44M264 54V44M320 54V40M376 54V44M432 54V44M488 54V44M544 54V44M600 54V40"/>
+  </g>
+  <rect class="trk" x="40" y="70" width="560" height="40" rx="4"/>
+  <rect class="trk" x="40" y="122" width="560" height="40" rx="4"/>
+  <rect class="trk" x="40" y="174" width="560" height="40" rx="4"/>
+  <rect class="trk" x="40" y="226" width="560" height="40" rx="4"/>
+  <rect class="trk" x="40" y="278" width="560" height="40" rx="4"/>
+  <rect class="b t" x="52" y="73" width="150" height="34" rx="4"/><rect class="b t" x="360" y="73" width="210" height="34" rx="4"/>
+  <rect class="b s" x="96" y="125" width="180" height="34" rx="4"/><rect class="b s" x="400" y="125" width="150" height="34" rx="4"/>
+  <rect class="b c" x="40" y="177" width="250" height="34" rx="4"/><rect class="b c" x="300" y="177" width="296" height="34" rx="4"/>
+  <rect class="b m" x="250" y="229" width="110" height="34" rx="4"/>
+  <g class="snd">
+    <rect x="70" y="286" width="3" height="24" rx="1"/><rect x="210" y="286" width="3" height="24" rx="1"/><rect x="300" y="286" width="3" height="24" rx="1"/>
+    <rect x="404" y="286" width="3" height="24" rx="1"/><rect x="470" y="286" width="3" height="24" rx="1"/><rect x="560" y="286" width="3" height="24" rx="1"/>
+  </g>
+  <g class="k">
+    <rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(70 90) rotate(45)"/><rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(180 90) rotate(45)"/>
+    <rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(400 90) rotate(45)"/><rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(540 90) rotate(45)"/>
+    <rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(150 142) rotate(45)"/><rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(470 142) rotate(45)"/>
+    <rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(60 194) rotate(45)"/><rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(260 194) rotate(45)"/>
+    <rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(430 194) rotate(45)"/><rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(580 194) rotate(45)"/>
+    <rect x="-4" y="-4" width="8" height="8" rx="1" transform="translate(305 246) rotate(45)"/>
+  </g>
+  <g id="head">
+    <rect class="ph" x="39" y="44" width="2" height="282"/>
+    <path class="ph" d="M34 38h12v7l-6 5-6-5z"/>
+  </g>
+</svg>
