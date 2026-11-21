@@ -66,7 +66,7 @@ export default async function Resources() {
   const GROUPS = resourceGroups({
     llms: bytes(await llmsText()),
     llmsFull: bytes(await llmsFull()),
-    agents: bytes(renderMarkdown("/ai-agents")?.text ?? ""),
+    agents: bytes((await renderMarkdown("/ai-agents"))?.text ?? ""),
   });
   const COUNT = GROUPS.reduce((n, g) => n + g.items.length, 0);
   return (

@@ -11,10 +11,11 @@ export const STAMP = 'site/public/og/stamp.json';
 
 const hash = (v) => crypto.createHash('sha256').update(JSON.stringify(v, (_, x) => (typeof x === 'function' ? String(x) : x))).digest('hex').slice(0, 16);
 
-// The main routes: the pages in site-pages.json with their own opengraph-image.tsx. The home page keeps its own card.
+// The main routes: the pages in site-pages.json with their own opengraph-image.tsx. The home page keeps its own card, and a route
+// with "ogFrom" serves the card of another route, so it has none of its own.
 function mainRoutes(root) {
   const { routes } = JSON.parse(fs.readFileSync(path.join(root, 'site/lib/site-pages.json'), 'utf8'));
-  return routes.map((r) => r.path).filter((p) => p !== '/' && fs.existsSync(path.join(root, 'site/app', p, 'opengraph-image.tsx')));
+  return routes.filter((r) => r.path !== '/' && !r.ogFrom && fs.existsSync(path.join(root, 'site/app', r.path, 'opengraph-image.tsx'))).map((r) => r.path);
 }
 
 /**

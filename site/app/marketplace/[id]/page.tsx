@@ -6,7 +6,7 @@ import { Footer } from "../../components/Footer";
 import { Clip } from "../../components/Clip";
 import { Next } from "../../components/Xp";
 import { pageMetadata } from "../../components/seo";
-import { LISTINGS, categoryLabel, creatorByHandle, listingById, listingsBy, priceLabel, softwareLabel, storeName, type Creator } from "../../../lib/marketplace";
+import { categoryLabel, getCreator, getListing, listingsBy, priceLabel, softwareLabel, storeName, type Creator } from "../../../lib/marketplace";
 import { jsonLdScript } from "../../../lib/schema";
 import { listingSchema, marketplaceCrumbs } from "../../../lib/schema-marketplace";
 import { Avatar, Chips, Facts } from "../parts";
@@ -16,28 +16,29 @@ import "../marketplace.css";
 
 type Params = { params: Promise<{ id: string }> };
 
-export const dynamicParams = false;
+// Listings come from the database after the build, so every page renders on first request and is cached.
+export const revalidate = 300;
 
 export function generateStaticParams() {
-  return LISTINGS.map((l) => ({ id: l.id }));
+  return [];
 }
 
 export async function generateMetadata({ params }: Params) {
-  const l = listingById((await params).id);
+  const l = await getListing((await params).id);
   if (!l) return {};
   return pageMetadata({
     title: `${l.title}: ${softwareLabel(l.software)} template | vawe`,
-    description: `${l.summary} ${priceLabel(l.price)}, by ${creatorByHandle(l.creator)?.name ?? l.creator}.`,
+    description: `${l.summary} ${priceLabel(l.price)}, by ${(await getCreator(l.creator))?.name ?? l.creator}.`,
     path: `/marketplace/${l.id}`,
     type: "article",
   });
 }
 
 export default async function ListingPage({ params }: Params) {
-  const l = listingById((await params).id);
+  const l = await getListing((await params).id);
   if (!l) notFound();
-  const c: Creator = creatorByHandle(l.creator) ?? { handle: l.creator, name: l.creator, link: "" };
-  const more = listingsBy(l.creator).filter((x) => x.id !== l.id);
+  const c: Creator = (await getCreator(l.creator)) ?? { handle: l.creator, name: l.creator, link: "" };
+  const more = (await listingsBy(l.creator)).filter((x) => x.id !== l.id);
   const free = l.price.amount === 0;
   const rows: [string, ReactNode][] = [
     ["Software", `${softwareLabel(l.software)}${l.version ? `, ${l.version}` : ""}`],

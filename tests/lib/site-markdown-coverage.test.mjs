@@ -14,7 +14,8 @@ function appRoutes(dir = path.join(SITE, 'app'), prefix = '') {
       if (entry.name === 'page.tsx') out.push(prefix || '/');
       continue;
     }
-    if (entry.name.startsWith('(') || entry.name === 'api') continue;
+    // api is machinery; admin is the private review page.
+    if (entry.name.startsWith('(') || entry.name === 'api' || entry.name === 'admin') continue;
     out.push(...appRoutes(path.join(dir, entry.name), `${prefix}/${entry.name}`));
   }
   return out;

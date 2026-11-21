@@ -1,0 +1,24 @@
+/* admin.css: the private review page. One consumer, so the rules stay here. */
+.ad-wrap{max-width:880px;margin:0 auto;padding:var(--sp-7) 0}
+.ad-wrap h1{font-size:var(--fs-sub);font-weight:var(--fw-head);letter-spacing:var(--track-sub);line-height:var(--lh-sub)}
+.ad-wrap p{margin-top:var(--sp-3);color:var(--ink-2)}
+.ad-list{list-style:none;display:grid;gap:var(--sp-5);margin-top:var(--sp-5)}
+.ad-card{padding:var(--sp-5);display:grid;gap:var(--sp-4)}
+.ad-head{display:grid;gap:var(--sp-1)}
+.ad-head h2{font-size:var(--fs-body);font-weight:var(--fw-head);text-transform:capitalize}
+.ad-kind{font-family:var(--font-mono),monospace;font-size:var(--fs-ui);color:var(--muted);font-weight:400}
+.ad-entry{display:grid;gap:var(--sp-3);padding-top:var(--sp-3);border-top:1px solid var(--line)}
+.ad-poster{max-width:100%;height:auto;border-radius:var(--r-in);box-shadow:var(--ring)}
+.ad-fields{display:grid;gap:var(--sp-2)}
+.ad-fields div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--sp-3)}
+.ad-fields dt{font-family:var(--font-mono),monospace;font-size:var(--fs-ui);color:var(--muted)}
+.ad-fields dd{overflow-wrap:anywhere;white-space:pre-line;color:var(--ink)}
+.ad-fields dd a{color:var(--accent)}
+.ad-actions{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--sp-3);padding-top:var(--sp-3);border-top:1px solid var(--line)}
+.ad-actions label,.ad-login label{display:grid;gap:var(--sp-1);font-size:var(--fs-ui);color:var(--muted);flex:1 1 240px}
+.ad-actions input,.ad-login input{padding:var(--sp-2) var(--sp-3);border-radius:var(--r-ctl);background:var(--raised);color:var(--ink);box-shadow:var(--ring);border:0;font:inherit}
+.ad-actions input:focus-visible,.ad-login input:focus-visible{outline:var(--focus-ring);outline-offset:2px}
+.ad-login{display:grid;gap:var(--sp-3);max-width:360px;margin-top:var(--sp-5)}
+.ad-error{color:var(--ink)}
+.ad-ok{color:var(--accent)}
+@media (max-width:640px){ .ad-fields div{grid-template-columns:1fr;gap:var(--sp-1)} }

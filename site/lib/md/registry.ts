@@ -20,6 +20,7 @@ import { moveSeoDescription, relatedMoves } from "../move-seo";
 import {
   CATEGORIES as TEMPLATE_CATEGORIES, TEMPLATES, TEMPLATES_DESCRIPTION, TEMPLATES_INTRO, categoryLabel, newCommand, templateById, templateSource, templatesTitle,
 } from "../templates";
+import { RESOURCES_CHECKED, RESOURCES_DESCRIPTION, RESOURCES_INTRO, RESOURCES_SOURCE, RESOURCES_TITLE, resourceSections } from "../motion-resources";
 import { SITE_URL, absoluteUrl } from "../site";
 import { absolutize, bareTitle, codeBlock, heading, item, markdownPage, table, type Link } from "./format";
 import { CONTENT_RENDERERS } from "./pages";
@@ -34,7 +35,8 @@ import { RENDERED, matchPattern, mdUrlOf } from "./routes.mjs";
 export type Doc = { title: string; description: string; body: string; updated?: string; related?: Link[] };
 export type Entry = { path: string; title: string; description: string; kind: "page" | "item"; full: boolean };
 type Params = Record<string, string>;
-export type Renderer = { entries(): Entry[]; render(params: Params): Doc | null };
+// The marketplace renderers read the database, so a renderer may answer later.
+export type Renderer = { entries(): Entry[] | Promise<Entry[]>; render(params: Params): Doc | null | Promise<Doc | null> };
 
 const dates = lastmod as Record<string, string>;
 const read = (file: string) => fs.readFileSync(path.join(process.cwd(), file), "utf8");
@@ -346,6 +348,23 @@ const agentsPage: Renderer = {
   },
 };
 
+const motionDirectory: Renderer = {
+  entries: () => [page("/resources/motion-design", RESOURCES_TITLE, RESOURCES_DESCRIPTION)],
+  render: () => ({
+    title: RESOURCES_TITLE,
+    description: RESOURCES_DESCRIPTION,
+    updated: RESOURCES_CHECKED ?? undefined,
+    body: [
+      `${RESOURCES_INTRO} The list lives at ${RESOURCES_SOURCE}.`,
+      ...resourceSections().flatMap((sec) => [
+        heading(2, sec.title),
+        sec.items.map((r) => item(r.name, r.url, `${r.description}. ${[r.pricing, r.licence].filter(Boolean).join(", ")}.`)).join("\n"),
+      ]),
+    ].join("\n\n"),
+    related: [{ text: "Everything vawe publishes", path: "/resources" }],
+  }),
+};
+
 const RENDERERS: Record<string, Renderer> = {
   "/blog": blogIndex,
   "/blog/[slug]": blogPost,
@@ -362,6 +381,7 @@ const RENDERERS: Record<string, Renderer> = {
   "/inspiration": inspirationIndex,
   "/inspiration/[type]": inspirationType,
   "/ai-agents": agentsPage,
+  "/resources/motion-design": motionDirectory,
   ...CONTENT_RENDERERS,
 };
 
@@ -370,11 +390,11 @@ if (patterns.length !== RENDERED.length || RENDERED.some((p: string) => !RENDERE
   throw new Error("lib/md/routes.mjs RENDERED and the renderers in lib/md/registry.ts must list the same patterns");
 }
 
-export function renderMarkdown(routePath: string): { text: string; updated?: string; longCache: boolean } | null {
+export async function renderMarkdown(routePath: string): Promise<{ text: string; updated?: string; longCache: boolean } | null> {
   for (const pattern of RENDERED as string[]) {
     const params = matchPattern(pattern, routePath);
     if (!params) continue;
-    const doc = RENDERERS[pattern].render(params as Params);
+    const doc = await RENDERERS[pattern].render(params as Params);
     if (!doc) return null;
     // The blog pages change on a post's date, so they keep the short cache.
     return { text: markdownPage({ ...doc, path: routePath }), updated: doc.updated, longCache: !pattern.startsWith("/blog") };
@@ -383,12 +403,12 @@ export function renderMarkdown(routePath: string): { text: string; updated?: str
 }
 
 // Every addressable markdown route, in the order llms.txt and llms-full.txt print them: pages first, then the items.
-export function listMarkdownRoutes(): Entry[] {
-  const all = (RENDERED as string[]).flatMap((p) => RENDERERS[p].entries());
+export async function listMarkdownRoutes(): Promise<Entry[]> {
+  const all = (await Promise.all((RENDERED as string[]).map((p) => RENDERERS[p].entries()))).flat();
   return [...all.filter((e) => e.kind === "page"), ...all.filter((e) => e.kind === "item")];
 }
 
-export function catalogMarkdown() {
-  const lines = listMarkdownRoutes().map((e) => item(e.title, mdUrlOf(e.path), e.description));
+export async function catalogMarkdown() {
+  const lines = (await listMarkdownRoutes()).map((e) => item(e.title, mdUrlOf(e.path), e.description));
   return `# vawe markdown catalog\n\n> Every page of vawe.dev that has a Markdown version. Add .md to the URL, or send Accept: text/markdown.\n\n${lines.join("\n")}\n`;
 }

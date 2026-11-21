@@ -3,7 +3,7 @@ import pages from "../lib/site-pages.json";
 import lastmod from "../lib/lastmod.json";
 import { MOVES, clip, type Move } from "../lib/moves";
 import { TEMPLATES } from "../lib/templates";
-import { LISTINGS, designerByHandle, liveJobs, profileHandles } from "../lib/marketplace";
+import { getDesigners, getListings, getLiveJobs, profileHandles } from "../lib/marketplace";
 import { EASES } from "../lib/easing";
 import { SPRINGS } from "../lib/springs";
 import { allPosts, latestDate } from "../lib/blog";
@@ -25,8 +25,8 @@ type Entry = { path: string; lastmod?: string; videos?: MetadataRoute.Sitemap[nu
 
 const dates = lastmod as Record<string, string>;
 
-// A scheduled post enters the sitemap on its date: regenerate hourly.
-export const revalidate = 3600;
+// A scheduled post enters the sitemap on its date, and an approved listing or job on approval: regenerate every five minutes.
+export const revalidate = 300;
 
 // The same plain URLs the page's VideoObject names (no ?v= hash), whole seconds as the sitemap wants.
 function moveVideos(m: Move) {
@@ -44,22 +44,24 @@ function moveVideos(m: Move) {
   ];
 }
 
-function entries(): Entry[] {
+async function entries(): Promise<Entry[]> {
+  const [listings, handles, designers, jobs] = await Promise.all([getListings(), profileHandles(), getDesigners(), getLiveJobs()]);
+  const updated = new Map(designers.map((d) => [d.handle, d.updated]));
   return [
     ...[...pages.routes, ...pages.docs].map((r) => ({ path: r.path, lastmod: r.path === "/blog" ? latestDate() : dates[r.path] })),
     ...MOVES.map((m) => ({ path: `/video-components/${m.name}`, lastmod: m.modified, videos: moveVideos(m) })),
     ...TEMPLATES.map((t) => ({ path: `/templates/${t.id}`, lastmod: dates["/templates"] })),
-    ...LISTINGS.map((l) => ({ path: `/marketplace/${l.id}`, lastmod: l.added })),
-    ...profileHandles().map((h) => ({ path: `/creators/${h}`, lastmod: designerByHandle(h)?.updated })),
-    ...liveJobs().map((j) => ({ path: `/jobs/${j.id}`, lastmod: j.posted })),
+    ...listings.map((l) => ({ path: `/marketplace/${l.id}`, lastmod: l.added })),
+    ...handles.map((h) => ({ path: `/creators/${h}`, lastmod: updated.get(h) })),
+    ...jobs.map((j) => ({ path: `/jobs/${j.id}`, lastmod: j.posted })),
     ...EASES.map((e) => ({ path: `/easing/${e.slug}`, lastmod: dates["/easing"] })),
     ...SPRINGS.map((s) => ({ path: `/springs/${s.slug}`, lastmod: dates["/springs"] })),
     ...allPosts().map((p) => ({ path: `/blog/${p.slug}`, lastmod: p.updated })),
   ];
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return entries().map((e) => ({
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  return (await entries()).map((e) => ({
     url: `${SITE_URL}${e.path}`,
     ...(e.lastmod ? { lastModified: e.lastmod } : {}),
     ...(e.videos ? { videos: e.videos } : {}),

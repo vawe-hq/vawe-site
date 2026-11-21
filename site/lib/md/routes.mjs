@@ -32,6 +32,7 @@ export const RENDERED = [
   "/",
   "/features",
   "/resources",
+  "/resources/motion-design",
   "/about",
   "/determinism",
   "/problems",

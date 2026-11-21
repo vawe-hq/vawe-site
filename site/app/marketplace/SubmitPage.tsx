@@ -3,7 +3,6 @@ import { Footer } from "../components/Footer";
 import { PageTop } from "../components/Xp";
 import { formGroups } from "../../lib/marketplace-forms";
 import { SUBMIT_PAGES } from "../../lib/marketplace-pages";
-import { SITE_REPO_URL } from "../../lib/site";
 import { SubmitForm } from "./SubmitForm";
 import "./marketplace.css";
 
@@ -22,9 +21,6 @@ export function SubmitPage({ kind, parent, current }: { kind: keyof typeof SUBMI
             {p.intro.map((t) => (
               <p className="mk-lead" key={t}>{t}</p>
             ))}
-            <p className="mk-lead">
-              You can also open the pull request yourself: add a JSON file to <a href={`${SITE_REPO_URL}/tree/main/${p.folder}`}>{p.folder}</a>.
-            </p>
           </header>
           <SubmitForm kind={kind} groups={formGroups(kind)} submitLabel={SUBMIT_LABEL[kind]} doneText={p.done} />
         </div>

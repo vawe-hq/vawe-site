@@ -64,7 +64,9 @@ function findPageFiles(dir) {
   return out;
 }
 
-const pageFiles = findPageFiles(SITE_APP).sort();
+// A private route is noindex and not in the sitemap on purpose, so it has no canonical, card or sitemap entry to check.
+const PRIVATE_ROUTES = new Set(['admin']);
+const pageFiles = findPageFiles(SITE_APP).filter((p) => !PRIVATE_ROUTES.has(path.relative(SITE_APP, p).split(path.sep)[0])).sort();
 const HOME = path.join(SITE_APP, 'page.tsx');
 
 // Route path relative to site/app: site/app/launch-video/page.tsx -> /launch-video, home -> /

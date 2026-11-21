@@ -135,7 +135,8 @@ function ownWords(id) {
   };
 }
 
-const market = json(path.join(SITE_LIB, 'marketplace.json'));
+// Listings and jobs live in Postgres now; a build without a database has none, so these two sets pass without a sibling check.
+const market = { listings: [], jobs: [] };
 const sameAs = (items, name, print, what) => {
   const same = repeats(items, name, print);
   return (p) => (same.has(p) ? { ok: false, why: `same ${what} as ${same.get(p).join(', ')}` } : { ok: true });

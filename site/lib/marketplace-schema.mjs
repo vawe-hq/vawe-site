@@ -1,5 +1,5 @@
-// The marketplace data contract: every file under marketplace/ and every form submission passes these
-// checks. Plain JS, because the build script, the tests and the site all import it.
+// The marketplace data contract: every form submission and every row written to the database passes these
+// checks. Plain JS, because the migration tests, the import script and the site all import it.
 
 export const SOFTWARE = [
   { id: 'vawe', label: 'vawe' },
@@ -102,7 +102,6 @@ export const FOLDERS = { creator: 'creators', listing: 'listings', job: 'jobs', 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const HANDLE = /^[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
-const LOCAL_MEDIA = /^media\/[a-z0-9]+(?:-[a-z0-9]+)*\.([a-z0-9]+)$/;
 // Tabs, newlines aside, a control character in a text field is never typed by a person.
 const CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
 
@@ -196,13 +195,8 @@ function mediaField(c, field, kind, { required = true } = {}) {
   const spec = MEDIA[kind];
   const want = spec.exts.join(', ');
   if (typeof v !== 'string') return c.add(field, 'must be text');
-  const local = LOCAL_MEDIA.exec(v);
-  if (local) {
-    if (!spec.exts.includes(local[1])) c.add(field, `must be a ${want} file`);
-    return;
-  }
   const u = httpsUrl(v);
-  if (!u) return c.add(field, `must be an https link to a ${want} file, or media/<name>.<ext> in the site repo`);
+  if (!u) return c.add(field, `must be an https link to a ${want} file`);
   if (!spec.exts.includes(extOf(u.pathname))) c.add(field, `must end in .${spec.exts.join(' or .')}`);
 }
 
@@ -262,7 +256,7 @@ export function checkListing(entry) {
   if (!SLUG.test(c.entry.id ?? '') || c.entry.id.length > 64) c.add('id', 'must be lowercase words joined by dashes, 64 characters or fewer');
   textField(c, 'title', LIMITS.title);
   textField(c, 'summary', LIMITS.summary);
-  if (!HANDLE.test(c.entry.creator ?? '')) c.add('creator', 'must be the handle of a file in marketplace/creators');
+  if (!HANDLE.test(c.entry.creator ?? '')) c.add('creator', 'must be the handle of a creator');
   oneOf(c, 'software', SOFTWARE);
   textField(c, 'version', LIMITS.version, { required: false });
   oneOf(c, 'category', CATEGORIES);
@@ -353,8 +347,8 @@ export const FORMS = {
     { name: 'software', label: 'Software', type: 'select', options: options(SOFTWARE), required: true },
     { name: 'version', label: 'Works with version', type: 'text', max: LIMITS.version, hint: 'For example 2024 or later' },
     { name: 'category', label: 'Category', type: 'select', options: options(CATEGORIES), required: true },
-    { name: 'preview', label: 'Preview video link', type: 'url', hint: 'https, .mp4 or .webm, up to 40 MB. Leave it empty to add the file in the pull request.' },
-    { name: 'poster', label: 'Poster image link', type: 'url', hint: 'https, .jpg, .png or .webp, up to 5 MB. Leave it empty to add the file in the pull request.' },
+    { name: 'preview', label: 'Preview video link', type: 'url', required: true, hint: 'https, .mp4 or .webm, up to 40 MB' },
+    { name: 'poster', label: 'Poster image link', type: 'url', required: true, hint: 'https, .jpg, .png or .webp, up to 5 MB' },
     { name: 'price', label: 'Price (0 for free)', type: 'number', min: 0, max: LIMITS.price, step: '0.01', required: true },
     { name: 'currency', label: 'Currency', type: 'text', max: 3, hint: 'USD, EUR, GBP and so on', placeholder: 'USD' },
     { name: 'url', label: 'Buy or download link', type: 'url', required: true, hint: 'Your own store page: Polar, Gumroad, Lemon Squeezy or any https link' },
@@ -428,8 +422,8 @@ export function entriesFromForm(kind, form, today) {
       software: str(form.software),
       version: str(form.version),
       category: str(form.category),
-      preview: str(form.preview) ?? `media/${id}.mp4`,
-      poster: str(form.poster) ?? `media/${id}.webp`,
+      preview: str(form.preview),
+      poster: str(form.poster),
       price: { amount: num(form.price), currency: upper(form.currency) ?? 'USD' },
       url: str(form.url),
       tags: commaList(form.tags),
@@ -477,4 +471,3 @@ export function entriesFromForm(kind, form, today) {
 }
 
 export const entryKey = (kind, entry) => (kind === 'creator' || kind === 'designer' ? entry.handle : entry.id);
-export const entryPath = (kind, entry) => `marketplace/${FOLDERS[kind]}/${entryKey(kind, entry)}.json`;

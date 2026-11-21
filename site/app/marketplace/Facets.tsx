@@ -12,8 +12,11 @@ const readValues = (facets: Facet[]): Values => {
 };
 
 function writeValues(values: Values) {
-  const q = new URLSearchParams();
-  for (const [k, v] of Object.entries(values)) if (v) q.set(k, v);
+  const q = new URLSearchParams(window.location.search);
+  for (const [k, v] of Object.entries(values)) {
+    if (v) q.set(k, v);
+    else q.delete(k);
+  }
   const s = q.toString();
   window.history.replaceState(null, "", s ? `?${s}` : window.location.pathname);
 }

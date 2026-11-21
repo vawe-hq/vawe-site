@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Next } from "../components/Xp";
 import { pageMetadata } from "../components/seo";
-import { JOBS_DESCRIPTION, JOBS_INTRO, JOBS_TITLE, TOOLS, employmentLabel, liveJobs, payLabel, placeLabel, type Job } from "../../lib/marketplace";
+import { JOBS_DESCRIPTION, JOBS_INTRO, JOBS_TITLE, TOOLS, employmentLabel, getLiveJobs, payLabel, placeLabel, type Job } from "../../lib/marketplace";
 import { EMPLOYMENT, WORKPLACES } from "../../lib/marketplace-schema.mjs";
 import { jsonLdScript } from "../../lib/schema";
 import { marketplaceListSchema } from "../../lib/schema-marketplace";
@@ -16,8 +16,8 @@ import "../marketplace/marketplace.css";
 
 export const metadata = pageMetadata({ title: JOBS_TITLE, description: JOBS_DESCRIPTION, path: "/jobs" });
 
-// An expired job leaves the board within the hour, without a deploy.
-export const revalidate = 3600;
+// An expired job leaves the board within five minutes, without a deploy.
+export const revalidate = 300;
 
 const FACETS = [
   { key: "workplace", label: "Where", options: WORKPLACES },
@@ -38,8 +38,8 @@ const row = (j: Job): JobRow => ({
   software: j.software,
 });
 
-export default function Jobs() {
-  const jobs = liveJobs();
+export default async function Jobs() {
+  const jobs = await getLiveJobs();
   return (
     <div className="shell">
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(marketplaceListSchema(jobs.map((j) => ({ title: j.title, href: `/jobs/${j.id}` })), { name: "Motion design jobs", path: "/jobs" }))} />

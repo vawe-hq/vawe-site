@@ -1,0 +1,16 @@
+/* directory.css: /resources/motion-design. Server-rendered rows; the client only hides what a search or a filter excludes. */
+.rd-search{display:grid;gap:var(--sp-1);margin-top:var(--sp-6);max-width:var(--measure)}
+.rd-search input{padding:var(--sp-2) var(--sp-3);min-height:var(--hit);border:0;border-radius:var(--r-ctl);background:var(--raised);color:var(--ink);box-shadow:var(--ring);font:inherit}
+.rd-search input:focus-visible{outline:var(--focus-ring);outline-offset:2px}
+.rd-sec{margin-top:var(--sp-7);scroll-margin-top:var(--sp-7)}
+.rd-sec h2{font-size:var(--fs-sub);font-weight:var(--fw-head);letter-spacing:var(--track-sub);line-height:var(--lh-sub);max-width:none}
+.rd-list{list-style:none;margin-top:var(--sp-3);border-bottom:1px solid var(--line)}
+.rd-row{display:grid;gap:var(--sp-1);padding:var(--sp-3) 0;border-top:1px solid var(--line)}
+.rd-name{width:max-content;max-width:100%;font-weight:600;color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--line-2)}
+.rd-name:focus-visible{outline:var(--focus-ring);outline-offset:2px}
+@media (hover:hover){ .rd-name:hover{text-decoration:underline} }
+.rd-desc{color:var(--ink-2);max-width:var(--measure)}
+.rd-meta{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-4)}
+.rd-none{margin-top:var(--sp-5);color:var(--ink-2)}
+.rd-clear{border:0;background:none;padding:0;color:var(--accent);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.rd-clear:focus-visible{outline:var(--focus-ring);outline-offset:2px}

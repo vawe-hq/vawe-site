@@ -186,6 +186,12 @@
       "label": "Resources"
     },
     {
+      "path": "/resources/motion-design",
+      "priority": 0.7,
+      "changeFrequency": "monthly",
+      "ogFrom": "/resources"
+    },
+    {
       "path": "/inspiration",
       "priority": 0.7,
       "changeFrequency": "weekly",

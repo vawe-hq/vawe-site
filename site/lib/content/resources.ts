@@ -8,6 +8,7 @@ import { MOVES } from "../moves";
 import { INSPIRATION, INSPIRATION_PATH } from "../inspiration";
 import { INSPIRATION_TYPE_PAGES, typePath } from "./inspiration-types";
 import { allPosts } from "../blog";
+import { RESOURCE_LIST, resourceSections } from "../motion-resources";
 import { RIVALS } from "./vs";
 import type { Crumb, Meta } from "./types";
 
@@ -116,6 +117,7 @@ export const resourceGroups = (sizes?: FileSizes): Group[] => [
     items: [
       { href: "/docs", title: "Docs", line: "Quickstart, the page contract, the CLI and troubleshooting.", icon: "book", meta: "docs" },
       { href: "/springs", title: "Spring presets", line: `${SPRINGS.length} spring presets from react-spring, Motion, SwiftUI and Compose as CSS linear(), with the numbers.`, icon: "curve", meta: `${SPRINGS.length}${NBSP}springs` },
+      { href: "/resources/motion-design", title: "Motion design directory", line: `${RESOURCE_LIST.length} tools, libraries, plugins, courses and references in ${resourceSections().length} sections, each with its price and licence.`, icon: "list", meta: `${RESOURCE_LIST.length}${NBSP}entries` },
       { href: "/docs/recipes", title: "Recipes", line: "Chains of video components for common short films, with the traps at each seam.", icon: "list", meta: "recipes" },
       { href: "/determinism", title: "Determinism", line: "Why the same page gives the same frames, and how a test proves it.", icon: "book", meta: "essay" },
       { href: "/how-to", title: "How-to guides", line: "One guide per editing task: captions, silences, titles, trims, music and speed.", icon: "book", meta: "guides" },

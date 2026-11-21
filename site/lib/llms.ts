@@ -21,11 +21,11 @@ const staticPaths = (RENDERED as string[]).filter((p) => !p.includes("["));
 const withMarkdownLinks = (text: string) =>
   staticPaths.reduce((t, p) => t.split(`](${absoluteUrl(p)})`).join(`](${absoluteUrl(mdUrlOf(p))})`), text);
 
-const itemsUnder = (prefix: string) => listMarkdownRoutes().filter((e) => e.kind === "item" && e.path.startsWith(prefix));
+const itemsUnder = async (prefix: string) => (await listMarkdownRoutes()).filter((e) => e.kind === "item" && e.path.startsWith(prefix));
 
 export async function llmsText() {
   const base = fs.readFileSync(path.join(process.cwd(), "content/llms-base.txt"), "utf8");
-  const posts = itemsUnder("/blog/");
+  const posts = await itemsUnder("/blog/");
   const blog = [
     `- [Blog](${BLOG_URL}.md): Tutorials and engineering notes from building vawe. Every post is also a Markdown file at ${BLOG_URL}/<slug>.md.`,
     `- [RSS feed](${BLOG_URL}/rss.xml): every post with its full text.`,
@@ -36,15 +36,15 @@ export async function llmsText() {
     const by = p.creator.name ? `${p.creator.name} (@${p.creator.handle})` : `@${p.creator.handle}`;
     return `- [${titleOf(p)}](${p.url}): by ${by}${p.madeWith ? `, made with ${p.madeWith}` : ""}`;
   }).join("\n");
-  const components = itemsUnder("/video-components/").map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
+  const components = (await itemsUnder("/video-components/")).map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
   const templates = [
     "## Templates",
     "A template is a finished film an agent copies with one command: `npx vawe new my-film --template <id>`. Pro templates also need a license key (`--key` or VAWE_KEY). The gallery is https://vawe.dev/templates and the data is https://vawe.dev/templates.json.",
-    ...itemsUnder("/templates/").map((e) => item(e.title, mdUrlOf(e.path), e.description)),
+    ...(await itemsUnder("/templates/")).map((e) => item(e.title, mdUrlOf(e.path), e.description)),
   ].join("\n");
-  const easingJobs =itemsUnder("/easing/for/").map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
-  const springs = itemsUnder("/springs/").map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
-  const compare = itemsUnder("/vs/").map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
+  const easingJobs = (await itemsUnder("/easing/for/")).map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
+  const springs = (await itemsUnder("/springs/")).map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
+  const compare = (await itemsUnder("/vs/")).map((e) => item(e.title, mdUrlOf(e.path), e.description)).join("\n");
   const docs = await docsIndex();
   const docsSection = docs.length ? ["## Docs", ...docs.map((d) => item(d.title, d.markdown, d.description))].join("\n") : "";
   const machine = [
@@ -72,10 +72,8 @@ function cutToBudget(parts: string[]) {
 }
 
 export async function llmsFull() {
-  const pages = listMarkdownRoutes()
-    .filter((e) => e.full)
-    .map((e) => ({ path: e.path, md: renderMarkdown(e.path)?.text ?? "" }))
-    .filter((p) => p.md);
+  const entries = (await listMarkdownRoutes()).filter((e) => e.full);
+  const pages = (await Promise.all(entries.map(async (e) => ({ path: e.path, md: (await renderMarkdown(e.path))?.text ?? "" })))).filter((p) => p.md);
   const docs = await docsIndex();
   const docPages = (await Promise.all(docs.map(async (d) => ({ path: new URL(d.url).pathname, md: await docMarkdown(d) })))).filter((d) => d.md);
   const head = `# ${SITE_NAME} - full content\n\n> ${SITE_DESCRIPTION}\n\nGenerated: ${new Date().toISOString().slice(0, 10)}\n\nThe guide, the main pages and the newest items of each collection. Every page and item: ${absoluteUrl("/llms.txt")}`;

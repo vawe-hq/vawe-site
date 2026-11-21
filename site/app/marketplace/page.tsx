@@ -15,14 +15,16 @@ import "./marketplace.css";
 
 export const metadata = pageMetadata({ title: MARKETPLACE_TITLE, description: MARKETPLACE_DESCRIPTION, path: "/marketplace" });
 
+export const revalidate = 300;
+
 const FACETS = [
   { key: "software", label: "Software", options: SOFTWARE },
   { key: "category", label: "Category", options: CATEGORIES },
   { key: "price", label: "Price", options: [{ id: "free", label: "Free" }, { id: "paid", label: "Paid" }] },
 ];
 
-export default function Marketplace() {
-  const items = marketItems();
+export default async function Marketplace() {
+  const items = await marketItems();
   const labels = Object.fromEntries(SOFTWARE.map((s) => [s.id, s.label]));
   return (
     <div className="shell">
@@ -48,7 +50,7 @@ export default function Marketplace() {
           <h2 className="tpl-h">How a listing works</h2>
           <ol className="mk-steps">
             <li>You fill in the form: the template, a preview video, a poster, the price and the link to your store.</li>
-            <li>The form opens a pull request on GitHub that adds your listing as a JSON file. The owner checks it and merges it.</li>
+            <li>The form sends your listing to the owner, who checks the links and the text and approves it.</li>
             <li>Your listing goes live with its own page and your creator page. Buyers pay you on your store.</li>
           </ol>
           <Next

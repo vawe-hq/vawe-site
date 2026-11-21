@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Next } from "../components/Xp";
 import { pageMetadata } from "../components/seo";
-import { DESIGNERS, HIRE_DESCRIPTION, HIRE_INTRO, HIRE_TITLE, TOOLS, availabilityText, rateLabel, softwareLabel, type Designer } from "../../lib/marketplace";
+import { getDesigners, HIRE_DESCRIPTION, HIRE_INTRO, HIRE_TITLE, TOOLS, availabilityText, rateLabel, softwareLabel, type Designer } from "../../lib/marketplace";
 import { AVAILABILITY } from "../../lib/marketplace-schema.mjs";
 import { jsonLdScript } from "../../lib/schema";
 import { marketplaceListSchema } from "../../lib/schema-marketplace";
@@ -21,6 +21,8 @@ const FACETS = [
   { key: "software", label: "Software", options: TOOLS },
 ];
 
+export const revalidate = 300;
+
 const ORDER = AVAILABILITY.map((a) => a.id);
 
 const card = (d: Designer): DesignerCard => ({
@@ -36,8 +38,8 @@ const card = (d: Designer): DesignerCard => ({
   reel: d.reel,
 });
 
-export default function Hire() {
-  const designers = [...DESIGNERS].sort((a, b) => ORDER.indexOf(a.availability) - ORDER.indexOf(b.availability) || b.updated.localeCompare(a.updated));
+export default async function Hire() {
+  const designers = (await getDesigners()).sort((a, b) => ORDER.indexOf(a.availability) - ORDER.indexOf(b.availability) || b.updated.localeCompare(a.updated));
   return (
     <div className="shell">
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(marketplaceListSchema(designers.map((d) => ({ title: d.name, href: `/creators/${d.handle}` })), { name: "Motion designers open to work", path: "/hire" }))} />

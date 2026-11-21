@@ -1,24 +1,24 @@
-import { CHECKS, FORMS, HONEYPOT, MEDIA, entriesFromForm, entryPath, isoDate } from "./marketplace-schema.mjs";
+import crypto from "node:crypto";
+import { CHECKS, FORMS, HONEYPOT, MEDIA, entriesFromForm, isoDate } from "./marketplace-schema.mjs";
+import { Conflict, Refused } from "./marketplace-store.mjs";
 
-// POST /api/marketplace/submit: a form becomes a pull request on the repo that adds its JSON files, so
-// the owner approves each entry by merging. Nothing but JSON is written; media is linked by URL and
-// checked with a HEAD request, or added to the pull request by hand.
+// POST /api/marketplace/submit: a form becomes a pending submission in the database. The owner reads
+// each one on /admin and approves it, which publishes the rows. Media is linked by URL and checked with
+// a HEAD request.
 
 type Fetch = typeof fetch;
 type Kind = keyof typeof FORMS;
 type FileKind = "creator" | "listing" | "job" | "designer";
-export type SubmitEnv = { MARKETPLACE_GITHUB_TOKEN?: string; MARKETPLACE_REPO?: string };
+export type SubmitEnv = { IP_HASH_KEY?: string };
 export type SubmitDeps = {
   fetch: Fetch;
   lookup: (host: string) => Promise<string[]>;
   limiter: RateLimiter;
   now?: () => Date;
-  branchSuffix?: () => string;
+  store: ((kind: Kind, planned: Planned[], ipHash: string) => Promise<string>) | null;
+  reservedIds?: string[];
 };
 
-export const DEFAULT_REPO = "vawe-hq/vawe-site";
-const BASE = "main";
-const GITHUB = "https://api.github.com";
 const MAX_BODY_BYTES = 32 * 1024;
 const MAX_REDIRECTS = 3;
 const HEAD_TIMEOUT_MS = 5000;
@@ -46,6 +46,8 @@ export class RateLimiter {
     return true;
   }
 }
+
+export const ipHash = (key: string | undefined, ip: string) => crypto.createHmac("sha256", key || "vawe").update(ip).digest("hex");
 
 const reply = (status: number, body: unknown, headers: Record<string, string> = {}) =>
   Response.json(body, { status, headers: { "cache-control": "no-store", ...headers } });
@@ -101,7 +103,7 @@ export async function checkMedia(url: string, kind: keyof typeof MEDIA, deps: Pi
   return "redirects too many times";
 }
 
-type Planned = { kind: FileKind; entry: Record<string, unknown> };
+export type Planned = { kind: FileKind; entry: Record<string, unknown> };
 
 const MEDIA_FIELDS: Record<FileKind, [string, keyof typeof MEDIA][]> = {
   creator: [["avatar", "image"]],
@@ -118,100 +120,6 @@ async function mediaProblems(files: Planned[], deps: SubmitDeps) {
     }),
   );
   return (await Promise.all(checks)).filter((x): x is string => Boolean(x));
-}
-
-class GitHubError extends Error {
-  status: number;
-  constructor(status: number, message: string) {
-    super(message);
-    this.status = status;
-  }
-}
-
-function github(token: string, doFetch: Fetch) {
-  return async (method: string, path: string, body?: unknown) => {
-    const res = await doFetch(`${GITHUB}${path}`, {
-      method,
-      headers: {
-        authorization: `Bearer ${token}`,
-        accept: "application/vnd.github+json",
-        "user-agent": "vawe-marketplace",
-        "x-github-api-version": "2022-11-28",
-        ...(body ? { "content-type": "application/json" } : {}),
-      },
-      body: body ? JSON.stringify(body) : undefined,
-      cache: "no-store",
-    }).catch(() => null);
-    if (!res) throw new GitHubError(502, "Could not reach GitHub.");
-    return { status: res.status, json: (await res.json().catch(() => null)) as Record<string, unknown> | null };
-  };
-}
-
-const contentsPath = (repo: string, file: string) => `/repos/${repo}/contents/${file.split("/").map(encodeURIComponent).join("/")}`;
-const decode = (b64: unknown) => {
-  try {
-    return JSON.parse(Buffer.from(String(b64), "base64").toString("utf8")) as Record<string, unknown>;
-  } catch {
-    return null;
-  }
-};
-
-// A listing may name a creator who already has a file: the pull request then adds the listing only,
-// if the links match. Any other file that exists already is a conflict.
-async function filesToAdd(gh: ReturnType<typeof github>, repo: string, files: Planned[]) {
-  const add: { path: string; entry: Record<string, unknown> }[] = [];
-  for (const f of files) {
-    const path = entryPath(f.kind, f.entry);
-    const got = await gh("GET", `${contentsPath(repo, path)}?ref=${BASE}`);
-    if (got.status === 404) {
-      add.push({ path, entry: f.entry });
-      continue;
-    }
-    if (got.status !== 200) throw new GitHubError(502, "Could not read the repo.");
-    if (f.kind === "creator" && decode(got.json?.content)?.link === f.entry.link) continue;
-    const what = f.kind === "creator" || f.kind === "designer" ? `The handle ${f.entry.handle} is taken` : `An entry named ${f.entry.id} exists`;
-    throw new GitHubError(409, `${what}. Pick another, or open a pull request that edits ${path}.`);
-  }
-  return add;
-}
-
-const json = (entry: unknown) => `${JSON.stringify(entry, null, 2)}\n`;
-
-function prText(kind: Kind, files: { path: string; entry: Record<string, unknown> }[]) {
-  const main = files[files.length - 1];
-  const key = String(main.entry.id ?? main.entry.handle);
-  const local = files.flatMap((f) => ["preview", "poster", "avatar"].map((k) => f.entry[k]).filter((v): v is string => typeof v === "string" && v.startsWith("media/")));
-  const body = [
-    `A ${kind} sent from the form on vawe.dev. Merge to publish it; close to decline.`,
-    "",
-    "Files:",
-    ...files.map((f) => `- \`${f.path}\``),
-    ...(local.length ? ["", "Add these files to this pull request before you merge:", ...local.map((m) => `- \`marketplace/${m}\``)] : []),
-    "",
-    "Check before you merge: the links work and belong to the sender, the media is theirs to show, and the text is honest.",
-  ].join("\n");
-  return { title: `marketplace: ${kind} ${key}`, body, branch: `marketplace/${kind}-${key}`.slice(0, 120) };
-}
-
-async function openPullRequest(env: Required<SubmitEnv>, deps: SubmitDeps, kind: Kind, files: Planned[]) {
-  const repo = env.MARKETPLACE_REPO;
-  const gh = github(env.MARKETPLACE_GITHUB_TOKEN, deps.fetch);
-  const head = await gh("GET", `/repos/${repo}/git/ref/heads/${BASE}`);
-  const sha = (head.json?.object as { sha?: string } | undefined)?.sha;
-  if (head.status !== 200 || !sha) throw new GitHubError(502, "Could not read the repo.");
-  const add = await filesToAdd(gh, repo, files);
-  const text = prText(kind, add);
-  const branch = `${text.branch}-${(deps.branchSuffix ?? (() => crypto.randomUUID().slice(0, 8)))()}`;
-  const ref = await gh("POST", `/repos/${repo}/git/refs`, { ref: `refs/heads/${branch}`, sha });
-  if (ref.status !== 201) throw new GitHubError(502, "Could not open a branch.");
-  for (const f of add) {
-    const put = await gh("PUT", contentsPath(repo, f.path), { message: `marketplace: add ${f.path}`, content: Buffer.from(json(f.entry)).toString("base64"), branch });
-    if (put.status !== 201) throw new GitHubError(502, "Could not write the file.");
-  }
-  const pr = await gh("POST", `/repos/${repo}/pulls`, { title: text.title, body: text.body, head: branch, base: BASE, maintainer_can_modify: true });
-  const url = pr.json?.html_url;
-  if (pr.status !== 201 || typeof url !== "string") throw new GitHubError(502, "Could not open the pull request.");
-  return { url, files: add.map((f) => f.path) };
 }
 
 async function readBody(req: Request) {
@@ -263,17 +171,19 @@ export async function handleSubmit(req: Request, env: SubmitEnv, deps: SubmitDep
   const errors = files.flatMap((f) => (CHECKS[f.kind] as (e: unknown) => string[])(f.entry));
   if (errors.length) return reply(400, { error: "Some fields need a fix.", errors });
 
-  const { MARKETPLACE_GITHUB_TOKEN: token, MARKETPLACE_REPO: repo = DEFAULT_REPO } = env;
-  if (!token) return reply(503, { error: "Submissions are not open yet. Open a pull request on GitHub instead." });
+  if (!deps.store) return reply(503, { error: "Submissions are not open yet." });
+  const taken = files.find((f) => f.kind === "listing" && deps.reservedIds?.includes(String(f.entry.id)));
+  if (taken) return reply(409, { error: `The name ${taken.entry.id} belongs to a vawe template. Pick another title.` });
 
   const media = await mediaProblems(files, deps);
   if (media.length) return reply(400, { error: "A media link did not pass.", errors: media });
 
   try {
-    const pr = await openPullRequest({ MARKETPLACE_GITHUB_TOKEN: token, MARKETPLACE_REPO: repo }, deps, kind, files);
-    return reply(201, { ok: true, pr: pr.url, files: pr.files });
+    const id = await deps.store(kind, files, ipHash(env.IP_HASH_KEY, clientIp(req)));
+    return reply(201, { ok: true, id });
   } catch (e) {
-    if (e instanceof GitHubError) return reply(e.status, { error: e.message });
+    if (e instanceof Conflict) return reply(409, { error: `${e.message} Pick another.` });
+    if (e instanceof Refused) return reply(429, { error: e.message });
     throw e;
   }
 }

@@ -517,9 +517,12 @@ Provenance: the `.xp` layer and Laws of UX rules above; the owner's cutting-mat 
 (`/marketplace/submit`, `/jobs/post`, `/hire/join`), 2026-11-21. Classes are prefixed `mk-` in
 `app/marketplace/marketplace.css`, on top of `moves.css` (cards, chips, pills) and `templates.css` (section heads).
 
-- **Data:** one JSON file per entry in `marketplace/` (`listings/`, `creators/`, `jobs/`, `designers/`), checked by
-  `lib/marketplace-schema.mjs` and built into `lib/marketplace.json` by `scripts/site/marketplace.mjs`. Our own templates
-  join the gallery from `lib/templates.ts` with a `vawe` or `vawe Pro` badge and link to `/templates/<id>`.
+- **Data:** Postgres (`db/migrations/`, queries in `lib/marketplace-store.mjs`), the rules in `lib/marketplace-schema.mjs`.
+  A form writes a pending `submissions` row; `/admin` (token, noindex, not in the sitemap) shows it and approve writes the
+  rows, reject keeps the note. The public pages revalidate every 300 s and an approval revalidates them at once. With no
+  `DATABASE_URL` or an empty database every list is empty and the pages show their empty states. A job is live through its
+  60th day in the query itself. Our own templates join the gallery from `lib/templates.ts` with a `vawe` or `vawe Pro`
+  badge and link to `/templates/<id>`.
 - **Gallery:** the `/templates` card (poster at rest, preview on hover or focus), with the price in the top-right chip and
   "software · maker" under the title. Filters are labelled chip rows (`Facets.tsx`), one per facet, kept in the query string;
   a row shows only values that have items, with a count.

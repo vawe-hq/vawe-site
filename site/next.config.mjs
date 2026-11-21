@@ -66,6 +66,7 @@ const nextConfig = {
       // Link headers (canonical, describedby) come from the markdown
       // handler and middleware.ts, not from here.
       // Data files for agents: fetchable, not for the index.
+      { source: "/admin/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Cache-Control", value: "no-store" }] },
       { source: "/:file(llms\\.txt|llms-full\\.txt)", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
       { source: "/:dir(moves|video-components)/index.json", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
       { source: media, headers: [{ key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" }] },

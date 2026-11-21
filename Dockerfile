@@ -15,8 +15,6 @@ COPY scripts ./scripts
 # vendor/vawe holds the vawe engine files the site reads (see vendor/vawe/PIN): the motion library that
 # scripts/site/springs.mjs and easing.mjs import, the clip hash, and the font script with its lock.
 COPY vendor ./vendor
-# scripts/site/marketplace.mjs (the site prebuild) reads it, so a merged listing ships and a job past its 60 days drops out on the next build.
-COPY marketplace ./marketplace
 # The rule this encodes: only COPY a path git actually carries. A COPY of a gitignored directory is a
 # hard failure at build time, not a missing file.
 
@@ -82,6 +80,8 @@ RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack 
 COPY --from=builder --chown=nextjs:nodejs /src/site/.next/standalone ./site
 COPY --from=builder --chown=nextjs:nodejs /src/site/.next/static ./site/.next/static
 COPY --from=builder --chown=nextjs:nodejs /src/site/public ./site/public
+# The migrations and their runner (docker-start.sh runs it before the server). pg comes with the standalone trace.
+COPY --from=builder --chown=nextjs:nodejs /src/site/db ./site/db
 
 COPY --chown=nextjs:nodejs site/docker-start.sh ./
 RUN chmod +x docker-start.sh

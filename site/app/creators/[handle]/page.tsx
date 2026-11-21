@@ -5,7 +5,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Next } from "../../components/Xp";
 import { pageMetadata } from "../../components/seo";
-import { SOFTWARE, availabilityText, categoryLabel, creatorByHandle, priceLabel, profileHandles, profileOf, rateLabel, softwareLabel, type MarketItem } from "../../../lib/marketplace";
+import { SOFTWARE, availabilityText, categoryLabel, getProfile, priceLabel, rateLabel, softwareLabel, type MarketItem, type Profile } from "../../../lib/marketplace";
 import { jsonLdScript } from "../../../lib/schema";
 import { marketplaceCrumbs, profileSchema } from "../../../lib/schema-marketplace";
 import { MarketGallery } from "../../marketplace/MarketGallery";
@@ -16,34 +16,33 @@ import "../../marketplace/marketplace.css";
 
 type Params = { params: Promise<{ handle: string }> };
 
-export const dynamicParams = false;
+// Profiles come from the database after the build, so every page renders on first request and is cached.
+export const revalidate = 300;
 
 export function generateStaticParams() {
-  return profileHandles().map((handle) => ({ handle }));
+  return [];
 }
 
-function describe(handle: string) {
-  const p = profileOf(handle);
-  if (!p) return "";
+function describe(p: Profile) {
   const parts = [p.listings.length ? `${p.listings.length} motion design template${p.listings.length === 1 ? "" : "s"}` : "", p.designer ? `open to work: ${availabilityText(p.designer).toLowerCase()}` : ""].filter(Boolean);
   return `${p.name}, motion designer. ${parts.join(", ")}.${p.bio ? ` ${p.bio.split("\n")[0]}` : ""}`.slice(0, 300);
 }
 
 export async function generateMetadata({ params }: Params) {
   const { handle } = await params;
-  const p = profileOf(handle);
+  const p = await getProfile(handle);
   if (!p) return {};
-  return pageMetadata({ title: `${p.name} (@${p.handle}), motion designer | vawe`, description: describe(handle), path: `/creators/${handle}` });
+  return pageMetadata({ title: `${p.name} (@${p.handle}), motion designer | vawe`, description: describe(p), path: `/creators/${handle}` });
 }
 
 export default async function CreatorPage({ params }: Params) {
   const { handle } = await params;
-  const p = profileOf(handle);
+  const p = await getProfile(handle);
   if (!p) notFound();
   const d = p.designer;
   const items: MarketItem[] = p.listings.map((l) => ({
     key: l.id, title: l.title, summary: l.summary, software: l.software, category: l.category, href: `/marketplace/${l.id}`,
-    poster: l.poster, preview: l.preview, free: l.price.amount === 0, price: priceLabel(l.price), by: creatorByHandle(handle)?.name ?? p.name,
+    poster: l.poster, preview: l.preview, free: l.price.amount === 0, price: priceLabel(l.price), by: p.name,
   }));
   const hire: [string, ReactNode][] = d
     ? [

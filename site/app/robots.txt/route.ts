@@ -32,12 +32,14 @@ ${ANSWER_BOTS.map((bot) => `User-agent: ${bot}`).join("\n")}
 Allow: /
 Allow: /api/md/
 Disallow: /api/
+Disallow: /admin
 
 # Everyone else, training crawlers included: allowed.
 User-agent: *
 Allow: /
 Allow: /api/md/
 Disallow: /api/
+Disallow: /admin
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;

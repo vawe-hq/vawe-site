@@ -5,7 +5,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Next } from "../../components/Xp";
 import { pageMetadata } from "../../components/seo";
-import { applyLabel, employmentLabel, jobById, jobValidThrough, liveJobs, payLabel, placeLabel, softwareLabel, workplaceLabel } from "../../../lib/marketplace";
+import { applyLabel, employmentLabel, getJob, jobValidThrough, payLabel, placeLabel, softwareLabel, workplaceLabel } from "../../../lib/marketplace";
 import { jsonLdScript } from "../../../lib/schema";
 import { CONTACT_URL } from "../../../lib/site";
 import { jobPostingSchema, marketplaceCrumbs, paragraphs } from "../../../lib/schema-marketplace";
@@ -16,15 +16,15 @@ import "../../marketplace/marketplace.css";
 
 type Params = { params: Promise<{ id: string }> };
 
-export const dynamicParams = false;
-export const revalidate = 3600;
+// Jobs come from the database after the build, so every page renders on first request and is cached.
+export const revalidate = 300;
 
 export function generateStaticParams() {
-  return liveJobs().map((j) => ({ id: j.id }));
+  return [];
 }
 
 export async function generateMetadata({ params }: Params) {
-  const j = jobById((await params).id);
+  const j = await getJob((await params).id);
   if (!j) return {};
   return pageMetadata({
     title: `${j.title} at ${j.company} | vawe`,
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Params) {
 }
 
 export default async function JobPage({ params }: Params) {
-  const j = jobById((await params).id);
+  const j = await getJob((await params).id);
   if (!j) notFound();
   const rows: [string, ReactNode][] = [
     ["Company", j.companyUrl ? <a href={j.companyUrl} rel="noopener">{j.company}</a> : j.company],

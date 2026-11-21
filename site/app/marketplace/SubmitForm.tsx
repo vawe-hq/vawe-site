@@ -16,7 +16,7 @@ export type Field = {
 };
 export type Group = { title: string; fields: Field[] };
 
-type State = { kind: "idle" } | { kind: "sending" } | { kind: "done"; pr: string } | { kind: "error"; message: string; errors: string[] };
+type State = { kind: "idle" } | { kind: "sending" } | { kind: "done" } | { kind: "error"; message: string; errors: string[] };
 
 function formValues(form: HTMLFormElement, groups: Group[]) {
   const data = new FormData(form);
@@ -81,9 +81,8 @@ export function SubmitForm({ kind, groups, submitLabel, doneText }: { kind: stri
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ kind, ...formValues(e.currentTarget, groups) }),
     }).catch(() => null);
-    const body = (await res?.json().catch(() => null)) as { pr?: string; error?: string; errors?: string[] } | null;
-    if (res && res.ok && body?.pr) setState({ kind: "done", pr: body.pr });
-    else if (res && res.ok) setState({ kind: "done", pr: "" });
+    const body = (await res?.json().catch(() => null)) as { error?: string; errors?: string[] } | null;
+    if (res && res.ok) setState({ kind: "done" });
     else setState({ kind: "error", message: body?.error ?? "The form could not be sent. Try again in a minute.", errors: body?.errors ?? [] });
   }
 
@@ -92,7 +91,6 @@ export function SubmitForm({ kind, groups, submitLabel, doneText }: { kind: stri
       <div className="mk-done panel" role="status">
         <h2 className="mk-empty-h">Thanks. It is in review.</h2>
         <p>{doneText}</p>
-        {state.pr ? <p><a href={state.pr}>See the pull request on GitHub</a></p> : null}
       </div>
     );
   }
@@ -129,7 +127,7 @@ export function SubmitForm({ kind, groups, submitLabel, doneText }: { kind: stri
         <button className="btn btn-primary" type="submit" disabled={state.kind === "sending"}>
           {state.kind === "sending" ? "Sending…" : submitLabel}
         </button>
-        <p className="mk-hint">The owner reads every entry before it goes live. You see it as a pull request on GitHub.</p>
+        <p className="mk-hint">The owner reads every entry before it goes live.</p>
       </div>
     </form>
   );

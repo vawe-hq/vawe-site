@@ -1,12 +1,11 @@
 import {
-  DESIGNERS, HIRE_DESCRIPTION, HIRE_INTRO, HIRE_TITLE, JOBS_DESCRIPTION, JOBS_INTRO, JOBS_TITLE, LISTINGS, MARKETPLACE_DESCRIPTION, MARKETPLACE_INTRO, MARKETPLACE_TITLE,
-  availabilityText, categoryLabel, creatorByHandle, employmentLabel, jobById, jobValidThrough, listingById, liveJobs, marketItems, payLabel, placeLabel, priceLabel,
-  profileHandles, profileOf, rateLabel, softwareLabel, storeName,
+  HIRE_DESCRIPTION, HIRE_INTRO, HIRE_TITLE, JOBS_DESCRIPTION, JOBS_INTRO, JOBS_TITLE, MARKETPLACE_DESCRIPTION, MARKETPLACE_INTRO, MARKETPLACE_TITLE,
+  availabilityText, categoryLabel, employmentLabel, getCreator, getDesigners, getJob, getListing, getListings, getLiveJobs, getProfile, jobValidThrough, marketItems, payLabel, placeLabel, priceLabel,
+  profileNames, rateLabel, softwareLabel, storeName,
 } from "../marketplace";
 import { FORMS } from "../marketplace-schema.mjs";
 import { formGroups } from "../marketplace-forms";
 import { EMPTY, SUBMIT_PAGES } from "../marketplace-pages";
-import { SITE_REPO_URL } from "../site";
 import { bareTitle, heading, item, table } from "./format";
 import type { Entry, Renderer } from "./registry";
 
@@ -14,8 +13,8 @@ const page = (path: string, title: string, description: string): Entry => ({ pat
 
 const marketIndex: Renderer = {
   entries: () => [page("/marketplace", MARKETPLACE_TITLE, MARKETPLACE_DESCRIPTION)],
-  render: () => {
-    const items = marketItems();
+  render: async () => {
+    const items = await marketItems();
     return {
       title: MARKETPLACE_TITLE,
       description: MARKETPLACE_DESCRIPTION,
@@ -31,11 +30,11 @@ const marketIndex: Renderer = {
 };
 
 const listingItem: Renderer = {
-  entries: () => LISTINGS.map((l) => ({ path: `/marketplace/${l.id}`, title: l.title, description: l.summary, kind: "item", full: true })),
-  render: ({ id }) => {
-    const l = listingById(id);
+  entries: async () => (await getListings()).map((l) => ({ path: `/marketplace/${l.id}`, title: l.title, description: l.summary, kind: "item", full: true })),
+  render: async ({ id }) => {
+    const l = await getListing(id);
     if (!l) return null;
-    const by = creatorByHandle(l.creator)?.name ?? l.creator;
+    const by = (await getCreator(l.creator))?.name ?? l.creator;
     return {
       title: l.title,
       description: l.summary,
@@ -59,9 +58,9 @@ const listingItem: Renderer = {
 };
 
 const profileItem: Renderer = {
-  entries: () => profileHandles().map((h) => ({ path: `/creators/${h}`, title: profileOf(h)?.name ?? h, description: `Motion designer @${h}`, kind: "item", full: false })),
-  render: ({ handle }) => {
-    const p = profileOf(handle);
+  entries: async () => (await profileNames()).map((p) => ({ path: `/creators/${p.handle}`, title: p.name, description: `Motion designer @${p.handle}`, kind: "item", full: false })),
+  render: async ({ handle }) => {
+    const p = await getProfile(handle);
     if (!p) return null;
     const d = p.designer;
     return {
@@ -81,8 +80,8 @@ const profileItem: Renderer = {
 
 const jobsIndex: Renderer = {
   entries: () => [page("/jobs", JOBS_TITLE, JOBS_DESCRIPTION)],
-  render: () => {
-    const jobs = liveJobs();
+  render: async () => {
+    const jobs = await getLiveJobs();
     return {
       title: JOBS_TITLE,
       description: JOBS_DESCRIPTION,
@@ -98,9 +97,9 @@ const jobsIndex: Renderer = {
 };
 
 const jobItem: Renderer = {
-  entries: () => liveJobs().map((j) => ({ path: `/jobs/${j.id}`, title: `${j.title} at ${j.company}`, description: placeLabel(j), kind: "item", full: true })),
-  render: ({ id }) => {
-    const j = jobById(id);
+  entries: async () => (await getLiveJobs()).map((j) => ({ path: `/jobs/${j.id}`, title: `${j.title} at ${j.company}`, description: placeLabel(j), kind: "item", full: true })),
+  render: async ({ id }) => {
+    const j = await getJob(id);
     if (!j) return null;
     return {
       title: `${j.title} at ${j.company}`,
@@ -118,17 +117,20 @@ const jobItem: Renderer = {
 
 const hireIndex: Renderer = {
   entries: () => [page("/hire", HIRE_TITLE, HIRE_DESCRIPTION)],
-  render: () => ({
+  render: async () => {
+    const designers = await getDesigners();
+    return {
     title: HIRE_TITLE,
     description: HIRE_DESCRIPTION,
     body: [
       HIRE_INTRO,
-      DESIGNERS.length
-        ? DESIGNERS.map((d) => item(d.name, `/creators/${d.handle}`, `${availabilityText(d)}${d.rate ? `, ${rateLabel(d.rate)}` : ""}. ${d.software.map(softwareLabel).join(", ")}.`)).join("\n")
+      designers.length
+        ? designers.map((d) => item(d.name, `/creators/${d.handle}`, `${availabilityText(d)}${d.rate ? `, ${rateLabel(d.rate)}` : ""}. ${d.software.map(softwareLabel).join(", ")}.`)).join("\n")
         : `No designers listed yet. ${EMPTY.designer}`,
     ].join("\n\n"),
     related: [{ text: "Add your profile", path: "/hire/join" }, { text: "Motion design jobs", path: "/jobs" }],
-  }),
+    };
+  },
 };
 
 function submitPage(kind: keyof typeof SUBMIT_PAGES, fileKind: keyof typeof FORMS): Renderer {
@@ -140,7 +142,6 @@ function submitPage(kind: keyof typeof SUBMIT_PAGES, fileKind: keyof typeof FORM
       description: p.description,
       body: [
         ...p.intro,
-        `You can also open the pull request yourself: add a JSON file to [${p.folder}](${SITE_REPO_URL}/tree/main/${p.folder}).`,
         ...formGroups(fileKind).flatMap((g) => [heading(2, g.title), g.fields.map((f) => `- ${f.label}${f.required ? " (required)" : ""}${f.hint ? `: ${f.hint}` : ""}`).join("\n")]),
       ].join("\n\n"),
     }),

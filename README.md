@@ -39,9 +39,24 @@ films (`og-cards.mjs`, `easing-clips.mjs`, `easing-rule-clips.mjs`, `inspiration
 `.github/workflows/sync-docs-vendor.yml` copies `site/lib/typo.mjs` and `site/lib/md/accept.ts` to vawe-docs.
 It needs the secret `DOCS_DEPLOY_KEY`.
 
-## Marketplace listings
+## Marketplace database
 
-Anyone can submit a listing. The submit form on vawe.dev opens a pull request against this repository. A maintainer reviews it and merges it, and the listing goes live with the next deploy. To fix or remove a listing, open a pull request or an issue here.
+The marketplace (listings, creators, jobs, hire-me profiles) lives in Postgres. The container runs
+`site/db/migrate.mjs` before the server starts: it applies `site/db/migrations/*.sql` in order, each in one
+transaction, and does nothing when `DATABASE_URL` is unset. Without a database every marketplace page shows its
+empty state.
+
+| Variable | Where | What |
+| --- | --- | --- |
+| `DATABASE_URL` | runtime | Postgres connection string (the Coolify internal URL) |
+| `ADMIN_TOKEN` | runtime | at least 16 characters; signs in to `/admin`, where a submission is approved or rejected |
+
+A form on vawe.dev writes a pending submission. `/admin` (noindex, not in the sitemap) shows it with a preview;
+approve publishes the rows, reject keeps the note. To move old JSON entries in once, run
+`DATABASE_URL=... node site/db/import-json.mjs <folder with creators/ listings/ jobs/ designers/>`.
+To test against a throwaway database, run `docker run -d -e POSTGRES_PASSWORD=test -p 54329:5432 postgres:16-alpine`
+and `TEST_DATABASE_URL=postgres://postgres:test@localhost:54329/postgres npm test`. Without that variable the
+database tests are skipped.
 
 ## Contribute
 

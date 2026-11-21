@@ -16,9 +16,9 @@ async function answer(req: Request, ctx: Ctx) {
   const segments = (await ctx.params).path;
   const negotiated = req.headers.get("x-md-negotiated") === "1";
   if (req.method === "OPTIONS") return markdownResponse("OPTIONS", "");
-  if (segments.join("/") === "_catalog") return markdownResponse(req.method, catalogMarkdown(), { negotiated });
+  if (segments.join("/") === "_catalog") return markdownResponse(req.method, await catalogMarkdown(), { negotiated });
   const route = segments[0] === "index" && segments.length === 1 ? "/" : `/${segments.join("/")}`;
-  const found = renderMarkdown(route);
+  const found = await renderMarkdown(route);
   if (!found) return markdownResponse(req.method, notFound(route), { status: 404, negotiated });
   return markdownResponse(req.method, found.text, { canonicalPath: route, lastModified: found.updated, longCache: found.longCache, negotiated });
 }

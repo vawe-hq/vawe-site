@@ -1,0 +1,2925 @@
+{
+ "source": "https://github.com/vawe-hq/awesome-motion-design",
+ "checked": "2026-11-21",
+ "resources": [
+  {
+   "name": "Ads of the World",
+   "url": "https://www.adsoftheworld.com",
+   "section": "Inspiration and reels",
+   "description": "Archive of ad campaigns and commercials from around the world",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "ads",
+    "film"
+   ]
+  },
+  {
+   "name": "Are.na",
+   "url": "https://www.are.na",
+   "section": "Inspiration and reels",
+   "description": "Collect and connect images, links and notes into channels for a project",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "moodboard"
+   ]
+  },
+  {
+   "name": "Art of the Title",
+   "url": "https://www.artofthetitle.com",
+   "section": "Inspiration and reels",
+   "description": "Archive of film, TV and game title sequences, with credits and write-ups",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "titles",
+    "film"
+   ]
+  },
+  {
+   "name": "Awwwards",
+   "url": "https://www.awwwards.com",
+   "section": "Inspiration and reels",
+   "description": "Daily award for web sites, many of them heavy on motion and scroll effects",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "web",
+    "awards"
+   ]
+  },
+  {
+   "name": "Behance",
+   "url": "https://www.behance.net",
+   "section": "Inspiration and reels",
+   "description": "Portfolio site where motion studios and freelancers post full case studies",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "community",
+    "portfolio"
+   ]
+  },
+  {
+   "name": "CodePen",
+   "url": "https://codepen.io",
+   "section": "Inspiration and reels",
+   "description": "Browse and fork thousands of small animation and canvas demos",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "web",
+    "demos"
+   ]
+  },
+  {
+   "name": "Codrops",
+   "url": "https://tympanus.net/codrops/",
+   "section": "Inspiration and reels",
+   "description": "Tutorials and demos for animation, WebGL and creative front-end work",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "web",
+    "tutorials"
+   ]
+  },
+  {
+   "name": "Creative Applications Network",
+   "url": "https://www.creativeapplications.net",
+   "section": "Inspiration and reels",
+   "description": "Long-running site on art, code and interactive work",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "creative-coding",
+    "art"
+   ]
+  },
+  {
+   "name": "CSS Design Awards",
+   "url": "https://www.cssdesignawards.com",
+   "section": "Inspiration and reels",
+   "description": "Web design awards with a long archive of animated sites",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "web",
+    "awards"
+   ]
+  },
+  {
+   "name": "Dribbble",
+   "url": "https://dribbble.com",
+   "section": "Inspiration and reels",
+   "description": "Designers post short motion shots and work in progress. Search \"motion\"",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "community",
+    "gallery"
+   ]
+  },
+  {
+   "name": "Film Grab",
+   "url": "https://film-grab.com",
+   "section": "Inspiration and reels",
+   "description": "Large collection of film stills for framing, light and colour reference",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "film",
+    "stills"
+   ]
+  },
+  {
+   "name": "Mobbin",
+   "url": "https://mobbin.com",
+   "section": "Inspiration and reels",
+   "description": "Screens and flows from real mobile and web apps",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "ui",
+    "mobile"
+   ]
+  },
+  {
+   "name": "Motionographer",
+   "url": "https://motionographer.com",
+   "section": "Inspiration and reels",
+   "description": "Daily showcase of motion design work, with interviews on how projects were made",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "reel",
+    "news"
+   ]
+  },
+  {
+   "name": "OpenProcessing",
+   "url": "https://openprocessing.org",
+   "section": "Inspiration and reels",
+   "description": "Creative coding sketches you can read, run and fork",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "creative-coding"
+   ]
+  },
+  {
+   "name": "Page Flows",
+   "url": "https://pageflows.com",
+   "section": "Inspiration and reels",
+   "description": "Video recordings of real product flows, useful for UI motion reference",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "ui",
+    "flows"
+   ]
+  },
+  {
+   "name": "Savee",
+   "url": "https://savee.com",
+   "section": "Inspiration and reels",
+   "description": "Save images and links into boards for a quick visual reference library",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "moodboard"
+   ]
+  },
+  {
+   "name": "Shadertoy",
+   "url": "https://www.shadertoy.com",
+   "section": "Inspiration and reels",
+   "description": "Community of shader programs that run live in the browser",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "shaders"
+   ]
+  },
+  {
+   "name": "Showreel.design",
+   "url": "https://showreel.design",
+   "section": "Inspiration and reels",
+   "description": "Collection of designer and studio showreels",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "reel"
+   ]
+  },
+  {
+   "name": "Vimeo Staff Picks",
+   "url": "https://vimeo.com/channels/staffpicks",
+   "section": "Inspiration and reels",
+   "description": "Short films, animation and motion work picked by Vimeo staff",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "reel",
+    "film"
+   ]
+  },
+  {
+   "name": "Watch the Titles",
+   "url": "https://www.watchthetitles.com",
+   "section": "Inspiration and reels",
+   "description": "Title sequences from film and TV, searchable by studio and designer",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "titles",
+    "film"
+   ]
+  },
+  {
+   "name": "60fps.design",
+   "url": "https://60fps.design",
+   "section": "Motion principles and references",
+   "description": "Short examples of UI animations that run smoothly",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "ui",
+    "examples"
+   ]
+  },
+  {
+   "name": "An Interactive Guide to CSS Transitions",
+   "url": "https://www.joshwcomeau.com/animation/css-transitions/",
+   "section": "Motion principles and references",
+   "description": "Interactive lessons on timing functions, delays and transitions",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "css",
+    "tutorial"
+   ]
+  },
+  {
+   "name": "Animation Duration and Motion Characteristics",
+   "url": "https://www.nngroup.com/articles/animation-duration/",
+   "section": "Motion principles and references",
+   "description": "Research-backed ranges for how long UI animations should last",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "timing",
+    "research"
+   ]
+  },
+  {
+   "name": "Apple Human Interface Guidelines: Motion",
+   "url": "https://developer.apple.com/design/human-interface-guidelines/motion",
+   "section": "Motion principles and references",
+   "description": "Apple's advice on purposeful motion in apps",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "guidelines",
+    "ui"
+   ]
+  },
+  {
+   "name": "Carbon Design System: Motion",
+   "url": "https://carbondesignsystem.com/elements/motion/overview/",
+   "section": "Motion principles and references",
+   "description": "IBM's motion rules with easing curves and duration tokens",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "guidelines",
+    "ui"
+   ]
+  },
+  {
+   "name": "CSS easing functions (MDN)",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function",
+   "section": "Motion principles and references",
+   "description": "Reference for every CSS easing function, including steps() and linear()",
+   "pricing": "Free",
+   "licence": "CC-BY-SA-2.5",
+   "tags": [
+    "css",
+    "easing"
+   ]
+  },
+  {
+   "name": "CSS Spring Easing Generator",
+   "url": "https://www.kvin.me/css-springs",
+   "section": "Motion principles and references",
+   "description": "Tune a spring and get the linear() easing that matches it",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "css",
+    "spring"
+   ]
+  },
+  {
+   "name": "cubic-bezier.com",
+   "url": "https://cubic-bezier.com",
+   "section": "Motion principles and references",
+   "description": "Drag the handles of a Bézier curve and watch the motion it makes",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "easing",
+    "css"
+   ]
+  },
+  {
+   "name": "Easing Wizard",
+   "url": "https://easingwizard.com",
+   "section": "Motion principles and references",
+   "description": "Build and copy CSS easing, including spring-like and bounce curves",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "easing",
+    "css"
+   ]
+  },
+  {
+   "name": "Easings.net",
+   "url": "https://easings.net",
+   "section": "Motion principles and references",
+   "description": "Cheat sheet that shows every common easing curve with its CSS value",
+   "pricing": "Free",
+   "licence": "MIT",
+   "tags": [
+    "easing"
+   ]
+  },
+  {
+   "name": "Fluent 2: Motion",
+   "url": "https://fluent2.microsoft.design/motion",
+   "section": "Motion principles and references",
+   "description": "Microsoft's motion principles, timing and easing for product UI",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "guidelines",
+    "ui"
+   ]
+  },
+  {
+   "name": "Good vs Great Animations",
+   "url": "https://emilkowal.ski/ui/good-vs-great-animations",
+   "section": "Motion principles and references",
+   "description": "Short, practical article on what makes UI animation feel right",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "ui",
+    "timing"
+   ]
+  },
+  {
+   "name": "Material Design motion",
+   "url": "https://m3.material.io/styles/motion/overview",
+   "section": "Motion principles and references",
+   "description": "Google's rules for easing, duration and transitions in app UI",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "guidelines",
+    "ui"
+   ]
+  },
+  {
+   "name": "Robert Penner's Easing Functions",
+   "url": "http://robertpenner.com/easing/",
+   "section": "Motion principles and references",
+   "description": "The original easing equations that most animation libraries still copy",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "easing",
+    "classic"
+   ]
+  },
+  {
+   "name": "Scroll-driven Animations",
+   "url": "https://scroll-driven-animations.style",
+   "section": "Motion principles and references",
+   "description": "Demos and a tool for scroll-driven animation in plain CSS",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "css",
+    "scroll"
+   ]
+  },
+  {
+   "name": "Springs and Bounces in Native CSS",
+   "url": "https://www.joshwcomeau.com/animation/linear-timing-function/",
+   "section": "Motion principles and references",
+   "description": "How to fake spring and bounce motion with the CSS linear() function",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "css",
+    "spring"
+   ]
+  },
+  {
+   "name": "Twelve basic principles of animation",
+   "url": "https://en.wikipedia.org/wiki/Twelve_basic_principles_of_animation",
+   "section": "Motion principles and references",
+   "description": "Plain summary of the Disney principles: squash, anticipation, follow through and the rest",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "principles",
+    "classic"
+   ]
+  },
+  {
+   "name": "View Transition API (MDN)",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API",
+   "section": "Motion principles and references",
+   "description": "How to animate between page states and pages with the browser",
+   "pricing": "Free",
+   "licence": "CC-BY-SA-2.5",
+   "tags": [
+    "api",
+    "reference"
+   ]
+  },
+  {
+   "name": "Web Animations API (MDN)",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API",
+   "section": "Motion principles and references",
+   "description": "Reference for the browser API that lets script control timelines",
+   "pricing": "Free",
+   "licence": "CC-BY-SA-2.5",
+   "tags": [
+    "api",
+    "reference"
+   ]
+  },
+  {
+   "name": "Animate.css",
+   "url": "https://animate.style",
+   "section": "Web animation libraries",
+   "description": "Ready-made CSS animation classes to drop onto elements",
+   "pricing": "Open source",
+   "licence": "Hippocratic-2.1",
+   "tags": [
+    "css"
+   ]
+  },
+  {
+   "name": "Anime.js",
+   "url": "https://animejs.com",
+   "section": "Web animation libraries",
+   "description": "Small JavaScript library for CSS, SVG and DOM animation with timelines",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "timeline",
+    "svg"
+   ]
+  },
+  {
+   "name": "AutoAnimate",
+   "url": "https://auto-animate.formkit.com",
+   "section": "Web animation libraries",
+   "description": "Adds animation to list changes with one line of code",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "dom"
+   ]
+  },
+  {
+   "name": "Barba.js",
+   "url": "https://barba.js.org",
+   "section": "Web animation libraries",
+   "description": "Page transitions for multi-page sites",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "transitions"
+   ]
+  },
+  {
+   "name": "canvas-confetti",
+   "url": "https://github.com/catdad/canvas-confetti",
+   "section": "Web animation libraries",
+   "description": "Confetti and particle bursts on a canvas",
+   "pricing": "Open source",
+   "licence": "ISC",
+   "tags": [
+    "canvas",
+    "effect"
+   ]
+  },
+  {
+   "name": "GSAP",
+   "url": "https://gsap.com",
+   "section": "Web animation libraries",
+   "description": "JavaScript animation library with timelines and scroll tools",
+   "pricing": "Free",
+   "licence": "GSAP Standard License",
+   "tags": [
+    "timeline",
+    "scroll"
+   ]
+  },
+  {
+   "name": "Lenis",
+   "url": "https://lenis.dev/",
+   "section": "Web animation libraries",
+   "description": "Smooth scroll library that works well with scroll-linked animation",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "scroll"
+   ]
+  },
+  {
+   "name": "Matter.js",
+   "url": "https://brm.io/matter-js/",
+   "section": "Web animation libraries",
+   "description": "2D physics engine for the web",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "physics"
+   ]
+  },
+  {
+   "name": "Motion",
+   "url": "https://motion.dev",
+   "section": "Web animation libraries",
+   "description": "Animation library for JavaScript, React and Vue, built on the Web Animations API",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "react",
+    "vanilla"
+   ]
+  },
+  {
+   "name": "Number Flow",
+   "url": "https://number-flow.barvian.me",
+   "section": "Web animation libraries",
+   "description": "Animated number transitions for React, Vue and Svelte",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "text",
+    "ui"
+   ]
+  },
+  {
+   "name": "React Spring",
+   "url": "https://www.react-spring.dev",
+   "section": "Web animation libraries",
+   "description": "Spring-physics animation for React",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "react",
+    "spring"
+   ]
+  },
+  {
+   "name": "Rive Web Runtime",
+   "url": "https://github.com/rive-app/rive-wasm",
+   "section": "Web animation libraries",
+   "description": "Runtime that plays Rive files in the browser",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "runtime",
+    "vector"
+   ]
+  },
+  {
+   "name": "Rough Notation",
+   "url": "https://roughnotation.com",
+   "section": "Web animation libraries",
+   "description": "Hand-drawn underlines, circles and highlights that animate in",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "svg",
+    "text"
+   ]
+  },
+  {
+   "name": "Splitting.js",
+   "url": "https://splitting.js.org",
+   "section": "Web animation libraries",
+   "description": "Splits text into characters, words and lines for per-letter animation",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "text"
+   ]
+  },
+  {
+   "name": "Theatre.js",
+   "url": "https://www.theatrejs.com",
+   "section": "Web animation libraries",
+   "description": "Animation toolbox with a visual timeline editor for the web and three.js",
+   "pricing": "Open source",
+   "licence": "Apache-2.0",
+   "tags": [
+    "timeline",
+    "3d"
+   ]
+  },
+  {
+   "name": "tsParticles",
+   "url": "https://particles.js.org",
+   "section": "Web animation libraries",
+   "description": "Particle, confetti and fireworks effects for the web",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "particles"
+   ]
+  },
+  {
+   "name": "Cavalry",
+   "url": "https://cavalry.studio/",
+   "section": "Lottie and vector animation",
+   "description": "Procedural 2D motion design app, free for individuals and paid for enterprise",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "procedural",
+    "editor"
+   ]
+  },
+  {
+   "name": "dotLottie",
+   "url": "https://dotlottie.io",
+   "section": "Lottie and vector animation",
+   "description": "Compact file format for Lottie, with a fast cross-platform player",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "lottie",
+    "format"
+   ]
+  },
+  {
+   "name": "Glaxnimate",
+   "url": "https://glaxnimate.org",
+   "section": "Lottie and vector animation",
+   "description": "Free desktop app for 2D vector animation with Lottie export",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "lottie",
+    "editor"
+   ]
+  },
+  {
+   "name": "Jitter",
+   "url": "https://jitter.video",
+   "section": "Lottie and vector animation",
+   "description": "Simple browser tool for motion graphics, export to video, GIF or Lottie",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "editor",
+    "ui"
+   ]
+  },
+  {
+   "name": "Keyshape",
+   "url": "https://www.keyshapeapp.com",
+   "section": "Lottie and vector animation",
+   "description": "Mac and Windows app for SVG animation with a one-time price",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "svg",
+    "editor"
+   ]
+  },
+  {
+   "name": "Lordicon",
+   "url": "https://lordicon.com",
+   "section": "Lottie and vector animation",
+   "description": "Animated icons with a free tier and an editor",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "icons"
+   ]
+  },
+  {
+   "name": "Lottie Animation Community",
+   "url": "https://lottie.github.io",
+   "section": "Lottie and vector animation",
+   "description": "Home of the open Lottie file format and its specification",
+   "pricing": "Open source",
+   "licence": null,
+   "tags": [
+    "lottie",
+    "spec"
+   ]
+  },
+  {
+   "name": "Lottie by Airbnb",
+   "url": "https://lottie.airbnb.tech/",
+   "section": "Lottie and vector animation",
+   "description": "Docs and players for Lottie on web, iOS, Android and React Native",
+   "pricing": "Open source",
+   "licence": "Apache-2.0",
+   "tags": [
+    "lottie",
+    "docs"
+   ]
+  },
+  {
+   "name": "LottieFiles",
+   "url": "https://lottiefiles.com",
+   "section": "Lottie and vector animation",
+   "description": "Big library of Lottie animations plus editor, player and converters",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "lottie",
+    "library"
+   ]
+  },
+  {
+   "name": "Lottielab",
+   "url": "https://lottielab.com",
+   "section": "Lottie and vector animation",
+   "description": "Browser editor for Lottie animations",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "lottie",
+    "editor"
+   ]
+  },
+  {
+   "name": "Rive",
+   "url": "https://rive.app",
+   "section": "Lottie and vector animation",
+   "description": "Editor for interactive vector animation with state machines, plus runtimes",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "interactive",
+    "editor"
+   ]
+  },
+  {
+   "name": "Rive Marketplace",
+   "url": "https://rive.app/marketplace",
+   "section": "Lottie and vector animation",
+   "description": "Community files for Rive: icons, characters and UI elements",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "community",
+    "assets"
+   ]
+  },
+  {
+   "name": "Spline",
+   "url": "https://spline.design",
+   "section": "Lottie and vector animation",
+   "description": "Browser 3D design tool with simple animation and web export",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "3d",
+    "web"
+   ]
+  },
+  {
+   "name": "SVGator",
+   "url": "https://www.svgator.com",
+   "section": "Lottie and vector animation",
+   "description": "Browser editor that animates SVG and exports to CSS, JS or video",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "svg",
+    "editor"
+   ]
+  },
+  {
+   "name": "SVGOMG",
+   "url": "https://jakearchibald.github.io/svgomg/",
+   "section": "Lottie and vector animation",
+   "description": "Web interface for SVGO that shrinks SVG files",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "svg",
+    "tool"
+   ]
+  },
+  {
+   "name": "ThorVG",
+   "url": "https://www.thorvg.org",
+   "section": "Lottie and vector animation",
+   "description": "Small vector graphics and Lottie rendering library",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "renderer",
+    "lottie"
+   ]
+  },
+  {
+   "name": "canvas-sketch",
+   "url": "https://github.com/mattdesl/canvas-sketch",
+   "section": "Code-based video",
+   "description": "Framework for canvas sketches that export PNG, GIF or video",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "canvas",
+    "export"
+   ]
+  },
+  {
+   "name": "CCapture.js",
+   "url": "https://github.com/spite/ccapture.js",
+   "section": "Code-based video",
+   "description": "Record canvas animation to video or GIF frame by frame",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "canvas",
+    "capture"
+   ]
+  },
+  {
+   "name": "Diffusion Studio Core",
+   "url": "https://github.com/diffusionstudio/core",
+   "section": "Code-based video",
+   "description": "Browser video editing engine written in TypeScript",
+   "pricing": "Open source",
+   "licence": "MPL-2.0",
+   "tags": [
+    "webcodecs",
+    "js"
+   ]
+  },
+  {
+   "name": "FFmpeg",
+   "url": "https://ffmpeg.org",
+   "section": "Code-based video",
+   "description": "The command-line tool behind nearly all video conversion and encoding",
+   "pricing": "Open source",
+   "licence": "LGPL-2.1-or-later (GPL options)",
+   "tags": [
+    "encoder",
+    "cli"
+   ]
+  },
+  {
+   "name": "ffmpeg.wasm",
+   "url": "https://ffmpegwasm.netlify.app",
+   "section": "Code-based video",
+   "description": "FFmpeg compiled to WebAssembly so it runs in the browser",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "ffmpeg",
+    "wasm"
+   ]
+  },
+  {
+   "name": "Mediabunny",
+   "url": "https://mediabunny.dev",
+   "section": "Code-based video",
+   "description": "Read, write and convert video files in the browser with WebCodecs",
+   "pricing": "Open source",
+   "licence": "MPL-2.0",
+   "tags": [
+    "webcodecs",
+    "js"
+   ]
+  },
+  {
+   "name": "MoviePy",
+   "url": "https://zulko.github.io/moviepy/",
+   "section": "Code-based video",
+   "description": "Edit and compose video clips with Python",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "python",
+    "editing"
+   ]
+  },
+  {
+   "name": "vawe",
+   "url": "https://github.com/vawe-hq/vawe",
+   "section": "Code-based video",
+   "description": "Renders a single HTML page to an mp4 by seeking CSS, SVG, canvas and three.js animation frame by frame",
+   "pricing": "Open source",
+   "licence": "Apache-2.0",
+   "tags": [
+    "html",
+    "video"
+   ]
+  },
+  {
+   "name": "WebCodecs (MDN)",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API",
+   "section": "Code-based video",
+   "description": "Reference for the browser API that encodes and decodes video frames",
+   "pricing": "Free",
+   "licence": "CC-BY-SA-2.5",
+   "tags": [
+    "api",
+    "reference"
+   ]
+  },
+  {
+   "name": "Adobe After Effects",
+   "url": "https://www.adobe.com/products/aftereffects.html",
+   "section": "Video editors, compositing and capture",
+   "description": "The standard tool for motion graphics and compositing",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "compositing",
+    "standard"
+   ]
+  },
+  {
+   "name": "Apple Motion",
+   "url": "https://www.apple.com/final-cut-pro/motion/",
+   "section": "Video editors, compositing and capture",
+   "description": "Mac motion graphics tool with a one-time price",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "motion",
+    "mac"
+   ]
+  },
+  {
+   "name": "Audacity",
+   "url": "https://www.audacityteam.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Free audio editor for cleaning and cutting sound",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "audio"
+   ]
+  },
+  {
+   "name": "Blender",
+   "url": "https://www.blender.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Full 3D, animation, compositing and video editing suite",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "3d",
+    "editor"
+   ]
+  },
+  {
+   "name": "Cap",
+   "url": "https://cap.so",
+   "section": "Video editors, compositing and capture",
+   "description": "Open-source screen recorder with sharing and editing",
+   "pricing": "Open source",
+   "licence": "AGPL-3.0 (parts MIT)",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "name": "CapCut",
+   "url": "https://www.capcut.com",
+   "section": "Video editors, compositing and capture",
+   "description": "Easy editor for short social video, with a free plan",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "editor",
+    "social"
+   ]
+  },
+  {
+   "name": "DaVinci Resolve",
+   "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+   "section": "Video editors, compositing and capture",
+   "description": "Editor, colour, Fusion compositing and audio in one app; the free version covers most work",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "editor",
+    "color"
+   ]
+  },
+  {
+   "name": "ezgif",
+   "url": "https://ezgif.com",
+   "section": "Video editors, compositing and capture",
+   "description": "Quick online GIF maker, converter and resizer",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "gif",
+    "web"
+   ]
+  },
+  {
+   "name": "Flowblade",
+   "url": "https://jliljebl.github.io/flowblade/",
+   "section": "Video editors, compositing and capture",
+   "description": "Multi-track editor for Linux",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "editor"
+   ]
+  },
+  {
+   "name": "Gifski",
+   "url": "https://gif.ski",
+   "section": "Video editors, compositing and capture",
+   "description": "Converts video to high-quality GIFs on macOS; the app has free and commercial licences",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "gif",
+    "mac"
+   ]
+  },
+  {
+   "name": "HandBrake",
+   "url": "https://handbrake.fr",
+   "section": "Video editors, compositing and capture",
+   "description": "Convert video between formats and shrink files",
+   "pricing": "Open source",
+   "licence": "GPL-2.0-only",
+   "tags": [
+    "encoder"
+   ]
+  },
+  {
+   "name": "Kap",
+   "url": "https://getkap.co",
+   "section": "Video editors, compositing and capture",
+   "description": "Light screen recorder for macOS that saves GIF or video; development is slow",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "capture",
+    "mac"
+   ]
+  },
+  {
+   "name": "Kdenlive",
+   "url": "https://kdenlive.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Multi-track video editor for Linux, Windows and macOS",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "editor"
+   ]
+  },
+  {
+   "name": "Krita",
+   "url": "https://krita.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Painting app with frame-by-frame animation tools",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "2d",
+    "paint"
+   ]
+  },
+  {
+   "name": "Natron",
+   "url": "https://natrongithub.github.io",
+   "section": "Video editors, compositing and capture",
+   "description": "Node-based compositing similar to Nuke",
+   "pricing": "Open source",
+   "licence": "GPL-2.0-or-later",
+   "tags": [
+    "compositing",
+    "node"
+   ]
+  },
+  {
+   "name": "OBS Studio",
+   "url": "https://obsproject.com",
+   "section": "Video editors, compositing and capture",
+   "description": "Record and stream your screen and cameras",
+   "pricing": "Open source",
+   "licence": "GPL-2.0-or-later",
+   "tags": [
+    "capture",
+    "live"
+   ]
+  },
+  {
+   "name": "Olive",
+   "url": "https://www.olivevideoeditor.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Node-based non-linear editor, still in early development",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "editor",
+    "node"
+   ]
+  },
+  {
+   "name": "OpenCut",
+   "url": "https://opencut.app",
+   "section": "Video editors, compositing and capture",
+   "description": "Open-source video editor that runs in the browser",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "editor",
+    "web"
+   ]
+  },
+  {
+   "name": "OpenShot",
+   "url": "https://www.openshot.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Easy video editor with keyframes and simple titles",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "editor"
+   ]
+  },
+  {
+   "name": "OpenToonz",
+   "url": "https://opentoonz.github.io",
+   "section": "Video editors, compositing and capture",
+   "description": "Production-grade 2D animation software used by Studio Ghibli",
+   "pricing": "Open source",
+   "licence": "BSD-3-Clause",
+   "tags": [
+    "2d"
+   ]
+  },
+  {
+   "name": "Pencil2D",
+   "url": "https://www.pencil2d.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Simple tool for hand-drawn 2D animation",
+   "pricing": "Open source",
+   "licence": "GPL-2.0-only",
+   "tags": [
+    "2d",
+    "hand-drawn"
+   ]
+  },
+  {
+   "name": "Shotcut",
+   "url": "https://shotcut.org",
+   "section": "Video editors, compositing and capture",
+   "description": "Cross-platform video editor with many filters",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "editor"
+   ]
+  },
+  {
+   "name": "Squoosh",
+   "url": "https://squoosh.app",
+   "section": "Video editors, compositing and capture",
+   "description": "Compare image codecs and compress images in the browser",
+   "pricing": "Open source",
+   "licence": "Apache-2.0",
+   "tags": [
+    "images"
+   ]
+  },
+  {
+   "name": "Synfig Studio",
+   "url": "https://www.synfig.org",
+   "section": "Video editors, compositing and capture",
+   "description": "2D vector animation and compositing with bones and tweening",
+   "pricing": "Open source",
+   "licence": "GPL-3.0-or-later",
+   "tags": [
+    "2d",
+    "vector"
+   ]
+  },
+  {
+   "name": "Tahoma2D",
+   "url": "https://tahoma2d.org",
+   "section": "Video editors, compositing and capture",
+   "description": "2D animation software based on OpenToonz, for hand-drawn and cut-out work",
+   "pricing": "Open source",
+   "licence": "BSD-3-Clause",
+   "tags": [
+    "2d"
+   ]
+  },
+  {
+   "name": "Babylon.js",
+   "url": "https://www.babylonjs.com",
+   "section": "3D, shaders and creative coding",
+   "description": "Web 3D engine with an editor and a node material tool",
+   "pricing": "Open source",
+   "licence": "Apache-2.0",
+   "tags": [
+    "3d",
+    "webgl"
+   ]
+  },
+  {
+   "name": "Cables.gl",
+   "url": "https://cables.gl",
+   "section": "3D, shaders and creative coding",
+   "description": "Visual programming for WebGL and interactive motion",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "node",
+    "webgl"
+   ]
+  },
+  {
+   "name": "Godot Engine",
+   "url": "https://godotengine.org",
+   "section": "3D, shaders and creative coding",
+   "description": "Open-source engine that is also used for animation and real-time film",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "engine",
+    "2d",
+    "3d"
+   ]
+  },
+  {
+   "name": "Houdini Apprentice",
+   "url": "https://www.sidefx.com/products/houdini-apprentice/",
+   "section": "3D, shaders and creative coding",
+   "description": "Free non-commercial version of Houdini for procedural effects",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "3d",
+    "procedural"
+   ]
+  },
+  {
+   "name": "Inigo Quilez articles",
+   "url": "https://iquilezles.org",
+   "section": "3D, shaders and creative coding",
+   "description": "Math and shader technique articles from a pioneer of real-time graphics",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "shaders",
+    "math"
+   ]
+  },
+  {
+   "name": "Material Maker",
+   "url": "https://www.materialmaker.org",
+   "section": "3D, shaders and creative coding",
+   "description": "Make procedural textures and materials with nodes",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "textures",
+    "procedural"
+   ]
+  },
+  {
+   "name": "openFrameworks",
+   "url": "https://openframeworks.cc",
+   "section": "3D, shaders and creative coding",
+   "description": "C++ toolkit for creative coding",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "creative-coding",
+    "c++"
+   ]
+  },
+  {
+   "name": "p5.js",
+   "url": "https://p5js.org",
+   "section": "3D, shaders and creative coding",
+   "description": "Friendly JavaScript library for drawing and animation in the browser",
+   "pricing": "Open source",
+   "licence": "LGPL-2.1",
+   "tags": [
+    "creative-coding"
+   ]
+  },
+  {
+   "name": "PixiJS",
+   "url": "https://pixijs.com",
+   "section": "3D, shaders and creative coding",
+   "description": "Fast 2D renderer for the web",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "2d",
+    "webgl"
+   ]
+  },
+  {
+   "name": "Processing",
+   "url": "https://processing.org",
+   "section": "3D, shaders and creative coding",
+   "description": "Language and editor for coding visual art",
+   "pricing": "Open source",
+   "licence": "GPL-3.0 and LGPL-2.1",
+   "tags": [
+    "creative-coding"
+   ]
+  },
+  {
+   "name": "The Book of Shaders",
+   "url": "https://thebookofshaders.com",
+   "section": "3D, shaders and creative coding",
+   "description": "Gentle step-by-step guide to fragment shaders",
+   "pricing": "Free",
+   "licence": "CC-BY-NC-ND-4.0",
+   "tags": [
+    "shaders",
+    "book"
+   ]
+  },
+  {
+   "name": "The Nature of Code",
+   "url": "https://natureofcode.com",
+   "section": "3D, shaders and creative coding",
+   "description": "Book on simulating motion, forces and natural systems in code",
+   "pricing": "Free",
+   "licence": "CC-BY-NC-4.0",
+   "tags": [
+    "physics",
+    "book"
+   ]
+  },
+  {
+   "name": "three.js",
+   "url": "https://threejs.org",
+   "section": "3D, shaders and creative coding",
+   "description": "The standard JavaScript 3D library for the web",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "3d",
+    "webgl"
+   ]
+  },
+  {
+   "name": "Three.js Journey",
+   "url": "https://threejs-journey.com",
+   "section": "3D, shaders and creative coding",
+   "description": "Long, well-liked course on three.js and WebGL",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "3d",
+    "course"
+   ]
+  },
+  {
+   "name": "TouchDesigner",
+   "url": "https://derivative.ca",
+   "section": "3D, shaders and creative coding",
+   "description": "Node-based tool for real-time visuals; free for non-commercial use",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "realtime",
+    "node"
+   ]
+  },
+  {
+   "name": "WebGL Fundamentals",
+   "url": "https://webglfundamentals.org",
+   "section": "3D, shaders and creative coding",
+   "description": "Clear lessons on WebGL from the ground up",
+   "pricing": "Free",
+   "licence": "BSD-3-Clause",
+   "tags": [
+    "webgl",
+    "tutorial"
+   ]
+  },
+  {
+   "name": "3Blue1Brown",
+   "url": "https://www.3blue1brown.com",
+   "section": "Learning",
+   "description": "Math explainers made with Manim, by the library's author",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "math"
+   ]
+  },
+  {
+   "name": "Animation at Work",
+   "url": "https://abookapart.com/products/animation-at-work",
+   "section": "Learning",
+   "description": "Rachel Nabors's short book on animation in web projects",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "book",
+    "ui"
+   ]
+  },
+  {
+   "name": "animations.dev",
+   "url": "https://animations.dev",
+   "section": "Learning",
+   "description": "Emil Kowalski's paid course on building UI animation that feels right",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "course",
+    "ui"
+   ]
+  },
+  {
+   "name": "Ben Marriott",
+   "url": "https://www.youtube.com/@BenMarriott",
+   "section": "Learning",
+   "description": "YouTube tutorials for motion designers",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "after-effects"
+   ]
+  },
+  {
+   "name": "Blackmagic Design training",
+   "url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+   "section": "Learning",
+   "description": "Official free training for DaVinci Resolve, Fusion and Fairlight",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "resolve",
+    "training"
+   ]
+  },
+  {
+   "name": "Blender Guru",
+   "url": "https://www.youtube.com/@blenderguru",
+   "section": "Learning",
+   "description": "YouTube beginner tutorials for Blender",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "blender"
+   ]
+  },
+  {
+   "name": "Blender Studio",
+   "url": "https://studio.blender.org",
+   "section": "Learning",
+   "description": "Training and production files from the Blender open movies; some content is free",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "blender",
+    "films"
+   ]
+  },
+  {
+   "name": "Domestika",
+   "url": "https://www.domestika.org",
+   "section": "Learning",
+   "description": "Project-based courses taught by working creatives, many on animation",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "course"
+   ]
+  },
+  {
+   "name": "Emil Kowalski",
+   "url": "https://emilkowal.ski",
+   "section": "Learning",
+   "description": "Blog and open-source work on building UI with good motion",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "ui",
+    "animation"
+   ]
+  },
+  {
+   "name": "Evan Abbott",
+   "url": "https://www.youtube.com/@EvanAbbott",
+   "section": "Learning",
+   "description": "YouTube channel on motion design and creative process",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "motion"
+   ]
+  },
+  {
+   "name": "Every Frame a Painting",
+   "url": "https://www.youtube.com/@everyframeapainting",
+   "section": "Learning",
+   "description": "Short video essays on film editing and visual craft",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "editing"
+   ]
+  },
+  {
+   "name": "freeCodeCamp",
+   "url": "https://www.freecodecamp.org",
+   "section": "Learning",
+   "description": "Free code courses, with CSS animation and JavaScript lessons",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "course",
+    "web"
+   ]
+  },
+  {
+   "name": "Greyscalegorilla",
+   "url": "https://greyscalegorilla.com",
+   "section": "Learning",
+   "description": "Training, plugins and free tutorials for Cinema 4D and motion work",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "c4d",
+    "training"
+   ]
+  },
+  {
+   "name": "GSAP Learning Centre",
+   "url": "https://gsap.com/resources/get-started/",
+   "section": "Learning",
+   "description": "Official guides, demos and cheat sheets for GSAP",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "gsap",
+    "docs"
+   ]
+  },
+  {
+   "name": "Hyperplexed",
+   "url": "https://www.youtube.com/@Hyperplexed",
+   "section": "Learning",
+   "description": "Short YouTube videos on animated UI and web effects",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "css"
+   ]
+  },
+  {
+   "name": "Jake in Motion",
+   "url": "https://www.youtube.com/@JakeInMotion",
+   "section": "Learning",
+   "description": "YouTube channel on After Effects tricks and workflow",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "after-effects"
+   ]
+  },
+  {
+   "name": "Josh Comeau",
+   "url": "https://www.joshwcomeau.com",
+   "section": "Learning",
+   "description": "Interactive articles on CSS and animation, with a paid course",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "css",
+    "react"
+   ]
+  },
+  {
+   "name": "MDN: Using CSS animations",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations",
+   "section": "Learning",
+   "description": "The reference tutorial for CSS keyframe animations",
+   "pricing": "Free",
+   "licence": "CC-BY-SA-2.5",
+   "tags": [
+    "css",
+    "docs"
+   ]
+  },
+  {
+   "name": "Motion Design School",
+   "url": "https://motiondesign.school",
+   "section": "Learning",
+   "description": "Courses and a free library of tutorials for After Effects and Cinema 4D",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "course",
+    "after-effects"
+   ]
+  },
+  {
+   "name": "Mt. Mograph",
+   "url": "https://www.youtube.com/@MtMograph",
+   "section": "Learning",
+   "description": "YouTube channel on After Effects and motion design",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "after-effects"
+   ]
+  },
+  {
+   "name": "Pixar in a Box",
+   "url": "https://www.khanacademy.org/partner-content/pixar",
+   "section": "Learning",
+   "description": "Khan Academy lessons on how Pixar makes animated films",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "animation",
+    "course"
+   ]
+  },
+  {
+   "name": "Rive Docs",
+   "url": "https://rive.app/docs/getting-started/introduction",
+   "section": "Learning",
+   "description": "Official guides and reference for the Rive editor and runtimes",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "rive",
+    "docs"
+   ]
+  },
+  {
+   "name": "Rive Masterclass",
+   "url": "https://www.rivemasterclass.com",
+   "section": "Learning",
+   "description": "Course on interactive animation with Rive",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "rive",
+    "course"
+   ]
+  },
+  {
+   "name": "School of Motion",
+   "url": "https://www.schoolofmotion.com",
+   "section": "Learning",
+   "description": "Well-known online courses for motion design, with free tutorials and a blog",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "course",
+    "after-effects"
+   ]
+  },
+  {
+   "name": "Sidebar",
+   "url": "https://sidebar.io",
+   "section": "Learning",
+   "description": "Five design links a day",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "newsletter",
+    "design"
+   ]
+  },
+  {
+   "name": "Skillshare",
+   "url": "https://www.skillshare.com",
+   "section": "Learning",
+   "description": "Subscription classes, including motion design and editing",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "course"
+   ]
+  },
+  {
+   "name": "The Coding Train",
+   "url": "https://www.youtube.com/@TheCodingTrain",
+   "section": "Learning",
+   "description": "Daniel Shiffman's friendly coding videos on p5.js and creative code",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "creative-coding"
+   ]
+  },
+  {
+   "name": "Thomas Flight",
+   "url": "https://www.youtube.com/@thomasflight",
+   "section": "Learning",
+   "description": "Video essays on motion design and animation",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "video-essay"
+   ]
+  },
+  {
+   "name": "Ukramedia",
+   "url": "https://www.youtube.com/@Ukramedia",
+   "section": "Learning",
+   "description": "YouTube channel with step-by-step After Effects tutorials",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "youtube",
+    "after-effects"
+   ]
+  },
+  {
+   "name": "Video Copilot",
+   "url": "https://www.videocopilot.net",
+   "section": "Learning",
+   "description": "Andrew Kramer's long-running free After Effects tutorials plus plugins",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "after-effects",
+    "tutorials"
+   ]
+  },
+  {
+   "name": "web.dev Learn CSS",
+   "url": "https://web.dev/learn/css",
+   "section": "Learning",
+   "description": "Free course on modern CSS, including animation",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "css",
+    "course"
+   ]
+  },
+  {
+   "name": "Adobe Color",
+   "url": "https://color.adobe.com",
+   "section": "Colour and gradients",
+   "description": "Build palettes from colour rules or from images",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "palette",
+    "harmony"
+   ]
+  },
+  {
+   "name": "Coblis",
+   "url": "https://www.color-blindness.com/coblis-color-blindness-simulator/",
+   "section": "Colour and gradients",
+   "description": "See an image as people with colour blindness see it",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "accessibility"
+   ]
+  },
+  {
+   "name": "Color Hunt",
+   "url": "https://colorhunt.co",
+   "section": "Colour and gradients",
+   "description": "Curated four-colour palettes",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "palette"
+   ]
+  },
+  {
+   "name": "ColorBox",
+   "url": "https://colorbox.io",
+   "section": "Colour and gradients",
+   "description": "Build smooth colour scales for UI and charts",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "scales"
+   ]
+  },
+  {
+   "name": "Coolors",
+   "url": "https://coolors.co",
+   "section": "Colour and gradients",
+   "description": "Fast palette generator with export and a large library",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "palette"
+   ]
+  },
+  {
+   "name": "CSS Gradient",
+   "url": "https://cssgradient.io",
+   "section": "Colour and gradients",
+   "description": "Build and copy CSS gradients",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "gradient"
+   ]
+  },
+  {
+   "name": "Haikei",
+   "url": "https://haikei.app",
+   "section": "Colour and gradients",
+   "description": "Generate SVG backgrounds, waves and mesh gradients",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "gradient",
+    "svg"
+   ]
+  },
+  {
+   "name": "Huemint",
+   "url": "https://huemint.com",
+   "section": "Colour and gradients",
+   "description": "Generate palettes for brand, web and graphics",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "palette"
+   ]
+  },
+  {
+   "name": "Leonardo",
+   "url": "https://leonardocolor.io",
+   "section": "Colour and gradients",
+   "description": "Adobe's tool for contrast-based colour scales",
+   "pricing": "Open source",
+   "licence": "Apache-2.0",
+   "tags": [
+    "contrast",
+    "scales"
+   ]
+  },
+  {
+   "name": "Oklch Color Picker",
+   "url": "https://oklch.com",
+   "section": "Colour and gradients",
+   "description": "Pick colours in OKLCH and get CSS",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "oklch",
+    "css"
+   ]
+  },
+  {
+   "name": "Poline",
+   "url": "https://meodai.github.io/poline/",
+   "section": "Colour and gradients",
+   "description": "Build colour palettes by moving between points in colour space",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "palette",
+    "generative"
+   ]
+  },
+  {
+   "name": "Radix Colors",
+   "url": "https://www.radix-ui.com/colors",
+   "section": "Colour and gradients",
+   "description": "Colour scales that work in light and dark themes",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "scales"
+   ]
+  },
+  {
+   "name": "Realtime Colors",
+   "url": "https://www.realtimecolors.com",
+   "section": "Colour and gradients",
+   "description": "Try a palette on a mock site live",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "palette",
+    "preview"
+   ]
+  },
+  {
+   "name": "uiGradients",
+   "url": "https://uigradients.com",
+   "section": "Colour and gradients",
+   "description": "Gradient palettes with copy-ready CSS",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "gradient"
+   ]
+  },
+  {
+   "name": "WebAIM Contrast Checker",
+   "url": "https://webaim.org/resources/contrastchecker/",
+   "section": "Colour and gradients",
+   "description": "Check text contrast against WCAG",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "accessibility"
+   ]
+  },
+  {
+   "name": "Adobe Fonts",
+   "url": "https://fonts.adobe.com",
+   "section": "Type",
+   "description": "Large font library included with Creative Cloud",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Axis-Praxis",
+   "url": "https://www.axis-praxis.org",
+   "section": "Type",
+   "description": "Play with the axes of a variable font in the browser",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "variable"
+   ]
+  },
+  {
+   "name": "Collletttivo",
+   "url": "https://www.collletttivo.it",
+   "section": "Type",
+   "description": "Italian collective that releases open-licence fonts",
+   "pricing": "Open source",
+   "licence": "OFL-1.1",
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Font Squirrel",
+   "url": "https://www.fontsquirrel.com",
+   "section": "Type",
+   "description": "Free fonts that are licensed for commercial use",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Fonts In Use",
+   "url": "https://fontsinuse.com",
+   "section": "Type",
+   "description": "Archive of real projects, indexed by typeface",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "inspiration"
+   ]
+  },
+  {
+   "name": "Fontshare",
+   "url": "https://www.fontshare.com",
+   "section": "Type",
+   "description": "Quality fonts from Indian Type Foundry, free for personal and commercial use",
+   "pricing": "Free",
+   "licence": "ITF Free Font License",
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Fontsource",
+   "url": "https://fontsource.org",
+   "section": "Type",
+   "description": "Self-host open-source fonts through npm packages",
+   "pricing": "Open source",
+   "licence": "OFL-1.1 (mostly)",
+   "tags": [
+    "fonts",
+    "npm"
+   ]
+  },
+  {
+   "name": "Future Fonts",
+   "url": "https://www.futurefonts.com/",
+   "section": "Type",
+   "description": "New type from independent designers, sold early at a lower price",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Google Fonts",
+   "url": "https://fonts.google.com",
+   "section": "Type",
+   "description": "Large library of open-licence fonts, free for any use",
+   "pricing": "Open source",
+   "licence": "OFL-1.1 (mostly)",
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Google Fonts Knowledge",
+   "url": "https://fonts.google.com/knowledge",
+   "section": "Type",
+   "description": "Short, clear lessons on type, from basics to variable fonts",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "guide"
+   ]
+  },
+  {
+   "name": "Open Foundry",
+   "url": "https://open-foundry.com",
+   "section": "Type",
+   "description": "Open-licence typefaces collected in one place",
+   "pricing": "Open source",
+   "licence": "Open licences",
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Practical Typography",
+   "url": "https://practicaltypography.com",
+   "section": "Type",
+   "description": "Matthew Butterick's guide to everyday typography",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "guide"
+   ]
+  },
+  {
+   "name": "The League of Moveable Type",
+   "url": "https://www.theleagueofmoveabletype.com",
+   "section": "Type",
+   "description": "One of the first open-source type foundries",
+   "pricing": "Open source",
+   "licence": "OFL-1.1",
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Type Scale",
+   "url": "https://typescale.com",
+   "section": "Type",
+   "description": "Preview a modular type scale live",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "scale"
+   ]
+  },
+  {
+   "name": "Typewolf",
+   "url": "https://www.typewolf.com",
+   "section": "Type",
+   "description": "Font pairings and examples of type on live sites",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "inspiration"
+   ]
+  },
+  {
+   "name": "uncut.wtf",
+   "url": "https://uncut.wtf",
+   "section": "Type",
+   "description": "Free fonts with a distinct, graphic style",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Utopia",
+   "url": "https://utopia.fyi",
+   "section": "Type",
+   "description": "Fluid type and space scale generator for CSS",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "css",
+    "scale"
+   ]
+  },
+  {
+   "name": "v-fonts",
+   "url": "https://v-fonts.com",
+   "section": "Type",
+   "description": "Search and test variable fonts",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "variable"
+   ]
+  },
+  {
+   "name": "Velvetyne",
+   "url": "https://velvetyne.fr",
+   "section": "Type",
+   "description": "Libre fonts with a bold, experimental taste",
+   "pricing": "Open source",
+   "licence": "OFL-1.1",
+   "tags": [
+    "fonts"
+   ]
+  },
+  {
+   "name": "Wakamai Fondue",
+   "url": "https://wakamaifondue.com",
+   "section": "Type",
+   "description": "Drop in a font file to see what it can do",
+   "pricing": "Open source",
+   "licence": "Open source",
+   "tags": [
+    "tool",
+    "variable"
+   ]
+  },
+  {
+   "name": "99Sounds",
+   "url": "https://99sounds.org",
+   "section": "Sound and music",
+   "description": "Free sample and sound packs for creators",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "sfx",
+    "samples"
+   ]
+  },
+  {
+   "name": "BBC Sound Effects",
+   "url": "https://sound-effects.bbcrewind.co.uk",
+   "section": "Sound and music",
+   "description": "Archive of BBC recordings, free for personal, educational and research use only",
+   "pricing": "Free",
+   "licence": "RemArc Licence",
+   "tags": [
+    "sfx",
+    "archive"
+   ]
+  },
+  {
+   "name": "Bensound",
+   "url": "https://www.bensound.com",
+   "section": "Sound and music",
+   "description": "Royalty-free music, free with credit",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "music"
+   ]
+  },
+  {
+   "name": "ccMixter",
+   "url": "https://ccmixter.org",
+   "section": "Sound and music",
+   "description": "Remix and sample community with Creative Commons licences",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "music",
+    "cc"
+   ]
+  },
+  {
+   "name": "Epidemic Sound",
+   "url": "https://www.epidemicsound.com",
+   "section": "Sound and music",
+   "description": "Subscription music and sound effects with a clear licence for video",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "music",
+    "sfx"
+   ]
+  },
+  {
+   "name": "Free Music Archive",
+   "url": "https://freemusicarchive.org",
+   "section": "Sound and music",
+   "description": "Music under Creative Commons licences; read the licence on each track",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "music",
+    "cc"
+   ]
+  },
+  {
+   "name": "Free To Use Sounds",
+   "url": "https://www.freetousesounds.com",
+   "section": "Sound and music",
+   "description": "Free sound effects recorded by a sound designer",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "sfx"
+   ]
+  },
+  {
+   "name": "Freesound",
+   "url": "https://freesound.org",
+   "section": "Sound and music",
+   "description": "Large community library of sound effects under Creative Commons licences; check each file",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "sfx",
+    "cc"
+   ]
+  },
+  {
+   "name": "Incompetech",
+   "url": "https://incompetech.com",
+   "section": "Sound and music",
+   "description": "Kevin MacLeod's music, free with credit",
+   "pricing": "Free",
+   "licence": "CC-BY-4.0",
+   "tags": [
+    "music"
+   ]
+  },
+  {
+   "name": "Kenney Audio",
+   "url": "https://kenney.nl/assets/category:Audio",
+   "section": "Sound and music",
+   "description": "Sound packs in the public domain",
+   "pricing": "Free",
+   "licence": "CC0-1.0",
+   "tags": [
+    "sfx"
+   ]
+  },
+  {
+   "name": "Mixkit",
+   "url": "https://mixkit.co",
+   "section": "Sound and music",
+   "description": "Free sound effects, music, footage and templates",
+   "pricing": "Free",
+   "licence": "Mixkit License",
+   "tags": [
+    "sfx",
+    "music"
+   ]
+  },
+  {
+   "name": "Musopen",
+   "url": "https://musopen.org",
+   "section": "Sound and music",
+   "description": "Public-domain classical recordings and sheet music",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "music",
+    "classical"
+   ]
+  },
+  {
+   "name": "Openverse",
+   "url": "https://openverse.org",
+   "section": "Sound and music",
+   "description": "Search engine for openly licensed images and audio",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "search",
+    "cc"
+   ]
+  },
+  {
+   "name": "Pixabay Music",
+   "url": "https://pixabay.com/music/",
+   "section": "Sound and music",
+   "description": "Free music tracks and sound effects for commercial use without credit",
+   "pricing": "Free",
+   "licence": "Pixabay Content License",
+   "tags": [
+    "music"
+   ]
+  },
+  {
+   "name": "sfxr.me",
+   "url": "https://sfxr.me",
+   "section": "Sound and music",
+   "description": "Make retro game sound effects in the browser",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "sfx",
+    "retro"
+   ]
+  },
+  {
+   "name": "Sonniss GameAudioGDC",
+   "url": "https://sonniss.com/gameaudiogdc",
+   "section": "Sound and music",
+   "description": "Free yearly bundle of professional sound effects from the GDC",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "sfx"
+   ]
+  },
+  {
+   "name": "Tone.js",
+   "url": "https://tonejs.github.io",
+   "section": "Sound and music",
+   "description": "Web Audio framework for making music and sound in the browser",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "audio",
+    "js"
+   ]
+  },
+  {
+   "name": "Uppbeat",
+   "url": "https://uppbeat.io",
+   "section": "Sound and music",
+   "description": "Music for creators, with a free tier that needs credit",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "music"
+   ]
+  },
+  {
+   "name": "Zapsplat",
+   "url": "https://www.zapsplat.com",
+   "section": "Sound and music",
+   "description": "Sound effects, free with credit and paid without",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "sfx"
+   ]
+  },
+  {
+   "name": "ambientCG",
+   "url": "https://ambientcg.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "CC0 PBR materials and HDRIs",
+   "pricing": "Free",
+   "licence": "CC0-1.0",
+   "tags": [
+    "textures",
+    "pbr"
+   ]
+  },
+  {
+   "name": "Blender Studio Films",
+   "url": "https://studio.blender.org/films",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "The Blender open movies with source files",
+   "pricing": "Free",
+   "licence": "CC-BY-4.0",
+   "tags": [
+    "films",
+    "assets"
+   ]
+  },
+  {
+   "name": "Coverr",
+   "url": "https://coverr.co",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Free stock video with a paid tier",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "footage"
+   ]
+  },
+  {
+   "name": "Hero Patterns",
+   "url": "https://heropatterns.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "SVG pattern backgrounds you can tint",
+   "pricing": "Free",
+   "licence": "CC-BY-4.0",
+   "tags": [
+    "svg",
+    "patterns"
+   ]
+  },
+  {
+   "name": "Iconify",
+   "url": "https://iconify.design",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Search and use icons from 200 open sets",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "icons"
+   ]
+  },
+  {
+   "name": "Kenney",
+   "url": "https://kenney.nl/assets",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "CC0 game and 3D assets",
+   "pricing": "Free",
+   "licence": "CC0-1.0",
+   "tags": [
+    "3d",
+    "2d"
+   ]
+  },
+  {
+   "name": "Library of Congress Free to Use",
+   "url": "https://www.loc.gov/free-to-use/",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Sets of public-domain items picked for reuse",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "public-domain"
+   ]
+  },
+  {
+   "name": "Lucide",
+   "url": "https://lucide.dev",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Clean, consistent open-source icon set",
+   "pricing": "Open source",
+   "licence": "ISC",
+   "tags": [
+    "icons"
+   ]
+  },
+  {
+   "name": "Mixkit Stock Video",
+   "url": "https://mixkit.co/free-stock-video/",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Free stock video clips",
+   "pricing": "Free",
+   "licence": "Mixkit License",
+   "tags": [
+    "footage"
+   ]
+  },
+  {
+   "name": "NASA Image and Video Library",
+   "url": "https://images.nasa.gov",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "NASA images, video and audio, mostly free to use",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "footage",
+    "public-domain"
+   ]
+  },
+  {
+   "name": "Pexels Videos",
+   "url": "https://www.pexels.com/videos/",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Free stock video clips for commercial use without credit",
+   "pricing": "Free",
+   "licence": "Pexels License",
+   "tags": [
+    "footage"
+   ]
+  },
+  {
+   "name": "Phosphor Icons",
+   "url": "https://phosphoricons.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Flexible icon family in six weights",
+   "pricing": "Open source",
+   "licence": "MIT",
+   "tags": [
+    "icons"
+   ]
+  },
+  {
+   "name": "Pixabay Videos",
+   "url": "https://pixabay.com/videos/",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Free stock video clips under the Pixabay licence",
+   "pricing": "Free",
+   "licence": "Pixabay Content License",
+   "tags": [
+    "footage"
+   ]
+  },
+  {
+   "name": "Poly Haven",
+   "url": "https://polyhaven.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "HDRIs, textures and 3D models under CC0",
+   "pricing": "Free",
+   "licence": "CC0-1.0",
+   "tags": [
+    "hdri",
+    "textures"
+   ]
+  },
+  {
+   "name": "Prelinger Archives",
+   "url": "https://archive.org/details/prelinger",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Thousands of public-domain ephemeral films",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "footage",
+    "public-domain"
+   ]
+  },
+  {
+   "name": "Quaternius",
+   "url": "https://quaternius.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Low-poly 3D models in the public domain",
+   "pricing": "Free",
+   "licence": "CC0-1.0",
+   "tags": [
+    "3d",
+    "models"
+   ]
+  },
+  {
+   "name": "Sketchfab",
+   "url": "https://sketchfab.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Huge 3D model library; each model carries its own licence",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "3d",
+    "models"
+   ]
+  },
+  {
+   "name": "Smithsonian 3D",
+   "url": "https://3d.si.edu",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Scans of museum objects, many CC0",
+   "pricing": "Free",
+   "licence": "CC0-1.0",
+   "tags": [
+    "3d",
+    "scans"
+   ]
+  },
+  {
+   "name": "Texture Labs",
+   "url": "https://www.texturelabs.org",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Photographic textures; free with a licence for most uses",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "textures",
+    "grunge"
+   ]
+  },
+  {
+   "name": "The Public Domain Review",
+   "url": "https://publicdomainreview.org",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Curated public-domain images and essays",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "public-domain"
+   ]
+  },
+  {
+   "name": "Transparent Textures",
+   "url": "https://www.transparenttextures.com",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Subtle tileable textures for backgrounds",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "patterns"
+   ]
+  },
+  {
+   "name": "unDraw",
+   "url": "https://undraw.co",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Open illustrations that you can recolour",
+   "pricing": "Free",
+   "licence": "unDraw License",
+   "tags": [
+    "illustration"
+   ]
+  },
+  {
+   "name": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org",
+   "section": "Stock footage, textures, 3D and icons",
+   "description": "Media files with open licences; check each file's terms",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "media",
+    "cc"
+   ]
+  },
+  {
+   "name": "Awwwards Jobs",
+   "url": "https://www.awwwards.com/jobs/",
+   "section": "Communities, jobs and events",
+   "description": "Job board for web and digital design",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "jobs"
+   ]
+  },
+  {
+   "name": "Blender Artists",
+   "url": "https://blenderartists.org",
+   "section": "Communities, jobs and events",
+   "description": "Forum for Blender users",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "forum",
+    "3d"
+   ]
+  },
+  {
+   "name": "Blender Conference",
+   "url": "https://conference.blender.org",
+   "section": "Communities, jobs and events",
+   "description": "Yearly Blender conference; talks are posted free",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "conference",
+    "3d"
+   ]
+  },
+  {
+   "name": "Creative Mornings",
+   "url": "https://creativemornings.com",
+   "section": "Communities, jobs and events",
+   "description": "Monthly talks for creatives in cities around the world",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "events"
+   ]
+  },
+  {
+   "name": "Dribbble Jobs",
+   "url": "https://dribbble.com/jobs",
+   "section": "Communities, jobs and events",
+   "description": "Design and motion jobs, including freelance",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "jobs"
+   ]
+  },
+  {
+   "name": "GSAP Community",
+   "url": "https://gsap.com/community/",
+   "section": "Communities, jobs and events",
+   "description": "Official forum with help from the GSAP team",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "forum",
+    "gsap"
+   ]
+  },
+  {
+   "name": "Motionographer Jobs",
+   "url": "https://motionographer.com/jobs/",
+   "section": "Communities, jobs and events",
+   "description": "Jobs from studios in the motion design industry",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "jobs"
+   ]
+  },
+  {
+   "name": "OFFF Barcelona",
+   "url": "https://offf.barcelona",
+   "section": "Communities, jobs and events",
+   "description": "Festival for design, motion and digital culture",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "festival"
+   ]
+  },
+  {
+   "name": "Rive Community",
+   "url": "https://community.rive.app",
+   "section": "Communities, jobs and events",
+   "description": "Forum for Rive users and the Rive team",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "forum",
+    "rive"
+   ]
+  },
+  {
+   "name": "aescripts + aeplugins",
+   "url": "https://aescripts.com",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Marketplace for After Effects and Premiere scripts and plugins; many are free",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "after-effects",
+    "plugins"
+   ]
+  },
+  {
+   "name": "Blender Extensions",
+   "url": "https://extensions.blender.org",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Official free add-ons and themes for Blender",
+   "pricing": "Free",
+   "licence": null,
+   "tags": [
+    "blender",
+    "addons"
+   ]
+  },
+  {
+   "name": "Duik Angela",
+   "url": "https://rxlaboratorio.org/rx-tool/duik/",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Free rigging and animation tools for After Effects",
+   "pricing": "Open source",
+   "licence": "GPL-3.0",
+   "tags": [
+    "after-effects",
+    "rigging"
+   ]
+  },
+  {
+   "name": "Envato Elements",
+   "url": "https://elements.envato.com",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Subscription for templates, footage, music and graphics",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "templates",
+    "stock"
+   ]
+  },
+  {
+   "name": "Figma Community",
+   "url": "https://www.figma.com/community",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Free files, plugins and widgets from Figma users",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "design",
+    "templates"
+   ]
+  },
+  {
+   "name": "Framer Marketplace",
+   "url": "https://www.framer.com/marketplace/",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Templates and components for animated sites",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "web",
+    "templates"
+   ]
+  },
+  {
+   "name": "FxFactory",
+   "url": "https://fxfactory.com",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Plugin manager and store for Final Cut, Premiere and Resolve",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "plugins"
+   ]
+  },
+  {
+   "name": "Gumroad",
+   "url": "https://gumroad.com",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Many motion designers sell presets, packs and tutorials here",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "marketplace"
+   ]
+  },
+  {
+   "name": "Jitter Templates",
+   "url": "https://jitter.video/templates/",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Ready-made motion templates for Jitter",
+   "pricing": "Freemium",
+   "licence": null,
+   "tags": [
+    "templates"
+   ]
+  },
+  {
+   "name": "Motion Array",
+   "url": "https://motionarray.com",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Subscription for templates, stock and plugins for video editors",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "templates",
+    "plugins"
+   ]
+  },
+  {
+   "name": "MotionVFX",
+   "url": "https://www.motionvfx.com",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Plugins and templates for Final Cut Pro, Premiere and Resolve",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "final-cut",
+    "plugins"
+   ]
+  },
+  {
+   "name": "VideoHive",
+   "url": "https://videohive.net",
+   "section": "Plugins, templates and marketplaces",
+   "description": "Pay-per-item video templates and motion graphics",
+   "pricing": "Paid",
+   "licence": null,
+   "tags": [
+    "templates"
+   ]
+  }
+ ]
+}
