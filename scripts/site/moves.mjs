@@ -70,7 +70,7 @@ function href(target) {
   if (/^(https?:|#|\/)/.test(target)) return target;
   const md = target.match(/^([a-z0-9-]+)\.md$/);
   if (md) return `/video-components/${md[1]}`;
-  const clip = target.match(/^(?:\.\.\/\.\.\/site\/public\/moves\/)?([a-z0-9-]+)\.mp4$/);
+  const clip = target.match(/^(?:(?:\.\.\/\.\.\/site\/public\/moves\/)|(?:clips\/))?([a-z0-9-]+)\.mp4$/);
   if (clip) return `/moves/${clip[1]}.mp4`;
   return REPO_BLOB + target;
 }
@@ -346,7 +346,7 @@ if (missing.length) console.warn(`~ not in a README group table: ${missing.join(
 fs.mkdirSync(OUT_DIR, { recursive: true });
 let encoded = 0;
 for (const m of moves) {
-  fs.writeFileSync(path.join(OUT_DIR, `${m.name}.md`), read(path.join(SRC, `${m.name}.md`)).replaceAll('](../../site/public/moves/', ']('));
+  fs.writeFileSync(path.join(OUT_DIR, `${m.name}.md`), read(path.join(SRC, `${m.name}.md`)).replaceAll('](../../site/public/moves/', '](').replaceAll('](clips/', ']('));
   for (const [stem, hash, key] of [[m.name, m.clipHash, 'clipHash'], [`${m.name}-${m.variant}`, m.variantHash, 'variantHash']]) {
     if (!hash) continue;
     const have = CLIP_FILES.every((e) => fs.existsSync(path.join(OUT_DIR, `${stem}.${e}`)));
