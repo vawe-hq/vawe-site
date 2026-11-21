@@ -1,9 +1,8 @@
 # vawe-site
 
-The source of https://vawe.dev: the marketing site (`site/`, a Next 15 app), its build scripts
-(`scripts/site/`) and its SEO and typography gates (`quality/gates/`). The engine is in
-[vawe-hq/vawe](https://github.com/vawe-hq/vawe). The docs app is in
-[vawe-hq/vawe-docs](https://github.com/vawe-hq/vawe-docs); this site proxies `/docs/*` to it.
+The source of https://vawe.dev: the website, the template gallery and the motion design marketplace for [vawe](https://github.com/vawe-hq/vawe), the open-source framework that renders one HTML page to an mp4.
+
+It holds the marketing site (`site/`, a Next 15 app), its build scripts (`scripts/site/`) and its SEO and typography gates (`quality/gates/`). The engine is in [vawe-hq/vawe](https://github.com/vawe-hq/vawe). The docs app is in [vawe-hq/vawe-docs](https://github.com/vawe-hq/vawe-docs); this site proxies `/docs/*` to it. The agent skills are in [vawe-hq/skills](https://github.com/vawe-hq/skills). Paid templates live in a private repo and reach buyers only through the vawe.dev license key check.
 
 The history before the split (2026-11-21) is the history of these paths in vawe-hq/vawe.
 
@@ -39,3 +38,11 @@ films (`og-cards.mjs`, `easing-clips.mjs`, `easing-rule-clips.mjs`, `inspiration
 
 `.github/workflows/sync-docs-vendor.yml` copies `site/lib/typo.mjs` and `site/lib/md/accept.ts` to vawe-docs.
 It needs the secret `DOCS_DEPLOY_KEY`.
+
+## Marketplace listings
+
+Anyone can submit a listing. The submit form on vawe.dev opens a pull request against this repository. A maintainer reviews it and merges it, and the listing goes live with the next deploy. To fix or remove a listing, open a pull request or an issue here.
+
+## Contribute
+
+Open an issue for a bug on vawe.dev. For a change, open a pull request and run `npm test` and the gates above first. A change to the engine or the skills goes to [vawe-hq/vawe](https://github.com/vawe-hq/vawe), and a change to a docs page goes to [vawe-hq/vawe-docs](https://github.com/vawe-hq/vawe-docs). See [CONTRIBUTING](https://github.com/vawe-hq/.github/blob/main/CONTRIBUTING.md) and the [vawe-hq profile](https://github.com/vawe-hq) for the other repos.
