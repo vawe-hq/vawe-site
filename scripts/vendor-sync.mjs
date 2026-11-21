@@ -18,6 +18,8 @@ const FILES = [
   'harness/media/fonts.lock.json',
   'harness/lib/clip-hash.mjs',
   'harness/lib/findings.mjs',
+  'harness/lib/template-slots.mjs',
+  'harness/lib/template-imports.mjs',
   'assets/brand-art/art.js',
   'assets/brand-art/cards.js',
 ];
